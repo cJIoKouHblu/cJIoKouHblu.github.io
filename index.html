@@ -1,0 +1,1904 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Витрина прохождений</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f1115;
+    color: #fff;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: #1a1d24;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.2s;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+
+    text-decoration: none;
+    color: inherit;
+}
+    
+
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 12px rgba(79, 195, 247, 0.3);
+}
+
+.card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+
+.content {
+    padding: 10px; 
+    gap: 6px;
+}
+
+.title {
+    min-height: 38px;
+    margin-bottom: 2px;
+}
+
+.subtitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    color: #aaa;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.logo {
+    height: 36px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.rating {
+    color: #ffd54f;
+    margin-bottom: 6px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.tags {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    background: #2a2f3a;
+    color: #ccc;
+}
+
+.tag.decoy {
+    background: rgba(200, 60, 60, 0.2);
+    color: #ff3a3a;
+}
+
+.tag.gypl {
+    background: rgba(200, 160, 60, 0.2);
+    color: #d4b46a;
+}
+
+.tag.chapaev {
+    background: rgba(220, 70, 70, 0.2);
+    color: #ee0909;
+}
+
+.tag.lexalol {
+    background: rgba(165, 1, 173, 0.2);
+    color: #b007ff;
+}
+
+.tag.bellactris {
+    background: rgba(120, 160, 255, 0.2);
+    color: #8ab4ff;
+}
+
+.link {
+    text-decoration: none;
+    color: #4fc3f7;
+    font-size: 14px;
+    margin-top: auto;
+    display: inline-block;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    padding: 10px;
+}
+
+.controls input {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    background: #1a1d24;
+    color: white;
+}
+
+.controls button {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: none;
+    background: #1a1d24;
+    color: white;
+    cursor: pointer;
+}
+
+.controls button:hover {
+    background: #2a2f3a;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+</style>
+
+</head>
+<body>
+
+<h1>🏆 Витрина прохождений</h1>
+<p class="subtitle">
+    <img src="10167/cJIoKouHblu.png" class="logo">
+    Прохождения cJIoKouHblu
+</p>
+
+<div class="controls">
+    <input type="text" id="search" placeholder="Поиск..." />
+
+    <button onclick="sortAZ()">A–Z</button>
+    <button onclick="sortRating()">⭐</button>
+</div>
+
+<div class="container"> 
+
+<!-- Подборка приколов -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx05trH8T9hFIJhvxRJXY3rn" target="_blank" class="card" data-title="Подборка приколов" data-rating="10">
+    <img src="https://i.ytimg.com/vi/BQEU3tOkMwk/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Подборка приколов</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        <span class="tag decoy">Decoy</span>
+        <span class="tag chapaev">Chapaev</span>
+        <span class="tag lexalol">92LEXALOL92</span>
+        <span class="tag bellactris">Bellactris</span>
+        </div>
+    </div>
+</a> 
+
+<!-- Stay in Tarlov -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx15vERzkgGS_fD9KFPDrDWZ" target="_blank" class="card" data-title="Stay in Tarlov" data-rating="0">
+    <img src="https://i.ytimg.com/vi/sYDx5cGAQg4/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Stay in Tarlov</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a> 
+
+<!-- Shorts -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2ZbWp9nxjP9Lt6lwZCSwvz" target="_blank" class="card" data-title="Shorts" data-rating="0">
+    <img src="https://i.ytimg.com/vi/Fe4RZaCZH28/hqdefault.jpg"> <!--заменить-->
+
+    <div class="content">
+        <div class="title">Shorts</div>
+    </div>
+</a>
+
+<!-- We Become What We Behold -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1FWbStpYdVJLJl6qAkbgEu" target="_blank" class="card" data-title="We Become What We Behold" data-rating="6">
+    <img src="https://i.ytimg.com/vi/WD8BAdAsD2o/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">We Become What We Behold</div>
+        <div class="rating">⭐ 6/10</div>
+        <div class="tags">
+        <span class="tag bellactris">Bellactris</span>
+        </div>
+    </div>
+</a> 
+
+<!-- Alan Wake’s American Nightmare -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx29OYNxfi5Ynbwra2Q8eHT5" target="_blank" class="card" data-title="Alan Wake’s American Nightmare" data-rating="9">
+    <img src="https://i.ytimg.com/vi/K-xvjor6zQA/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Alan Wake’s American Nightmare</div>
+        <div class="rating">⭐ 9/10</div>
+    </div>
+</a> 
+
+<!-- Peak -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2szQfIF3PgXBOQB1bHw9X4" target="_blank" class="card" data-title="Peak" data-rating="6">
+    <img src="https://i.ytimg.com/vi/tS7AxgZcP-o/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Peak</div>
+        <div class="rating">⭐ 6/10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a> 
+
+<!-- John Carpenter's Toxic Commando Demo -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2TUBZSHVEZHyHdm2l6YBcL" target="_blank" class="card" data-title="John Carpenter's Toxic Commando Demo" data-rating="7">
+    <img src="https://i.ytimg.com/vi/leP1UxqpO0w/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">John Carpenter's Toxic Commando Demo</div>
+        <div class="rating">⭐ 7/10</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a> 
+
+<!-- Deep Rock Galactic -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx111ZQUoCa7-Wg2pK-lPJxG" target="_blank" class="card" data-title="Deep Rock Galactic" data-rating="7">
+    <img src="https://i.ytimg.com/vi/UjKDNXvq8Oc/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Deep Rock Galactic</div>
+        <div class="rating">⭐ 7/10</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        <span class="tag vastor">Vashtor</span>
+        <span class="tag gafa">Gafa</span>
+        </div>
+    </div>
+</a> 
+
+<!-- World War Z -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3SRH6eJZcfe4FNpqhM_2EL" target="_blank" class="card" data-title="World War Z" data-rating="8">
+    <img src="https://i.ytimg.com/vi/3Q3Xe0k4PNc/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">World War Z</div>
+        <div class="rating">⭐ 8/10</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        <span class="tag decoy">Decoy</span>
+        <span class="tag chapaev">Chapaev</span>
+        <span class="tag lexalol">92LEXALOL92</span>
+        </div>
+    </div>
+</a> 
+
+<!-- Detroit: Become Human -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3WDPqWB0x6VsX2b82RjB6g" target="_blank" class="card" data-title="Detroit: Become Human" data-rating="9">
+    <img src="https://i.ytimg.com/vi/ALxAX_mEZu4/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Detroit: Become Human</div>
+        <div class="rating">⭐ 9/10</div>
+    </div>
+</a> 
+
+<!-- Hidden Deep -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1diGjK0pRR4xKUNyJ7GErV" target="_blank" class="card" data-title="Hidden Deep" data-rating="6">
+    <img src="https://i.ytimg.com/vi/b42S40qtDA4/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Hidden Deep</div>
+        <div class="rating">⭐ 6/10</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a>
+
+<!-- Watch Dogs 2 -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1F8SXFcCh_u8WJsaMB3twG" target="_blank" class="card" data-title="Watch Dogs 2" data-rating="6">
+    <img src="https://i.ytimg.com/vi/euqEqou-YDs/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Watch Dogs 2</div>
+        <div class="rating">⭐ 6/10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        </div>
+    </div>
+</a> 
+
+<!-- Escape the Backrooms -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0fqbahiRJ_Dce7sazz9Xw6" target="_blank" class="card" data-title="Escape the Backrooms" data-rating="5">
+    <img src="https://i.ytimg.com/vi/KOXjjtRGf9g/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Escape the Backrooms</div>
+        <div class="rating">⭐ 5/10</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a> 
+
+<!-- Ready or Not -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3Bv1rXn94box6sR0ltNDtR" target="_blank" class="card" data-title="Ready or Not" data-rating="9">
+    <img src="https://i.ytimg.com/vi/eWLM8utuVc8/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Ready or Not</div>
+        <div class="rating">⭐ 9/10</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        <span class="tag chapaev">Chapaev</span>
+        <span class="tag vastor">Vashtor</span>
+        <span class="tag krovavii_kot1">Krovavii_kot1</span>
+        </div>
+    </div>
+</a>
+
+<!-- Resident Evil 5 -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx03a3Nj6izAQOsDo2HMMrin" target="_blank" class="card" data-title="Resident Evil 5" data-rating="4">
+    <img src="https://i.ytimg.com/vi/si1BCGNPEzk/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Resident Evil 5</div>
+        <div class="rating">⭐ 4/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a> 
+
+<!-- Clair Obscur: Expedition 33 -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2KPIwO0yavOg9UWmiNLu8y" target="_blank" class="card" data-title="Clair Obscur: Expedition 33" data-rating="8">
+    <img src="https://i.ytimg.com/vi/J7V-0k1KVrA/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Clair Obscur: Expedition 33</div>
+        <div class="rating">⭐ 8/10</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a> 
+
+<!-- Valheim -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2GDCAz_PI4vShrR18ZuVrw" target="_blank" class="card" data-title="Valheim" data-rating="8">
+    <img src="https://i.ytimg.com/vi/_-DN68_yVGI/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Valheim</div>
+        <div class="rating">⭐ 8/10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a> 
+
+<!-- Dread Not -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0hme6lRAtxY0sWPfB7dS8P" target="_blank" class="card" data-title="Dread Not" data-rating="4">
+    <img src="https://i.ytimg.com/vi/4K4hjyF7-5U/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Dread Not</div>
+        <div class="rating">⭐ 4/10</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a> 
+
+<!-- Carry The Glass -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3AFAFA6Z_FF57LTSWqv1cm" target="_blank" class="card" data-title="Carry The Glass" data-rating="5">
+    <img src="https://i.ytimg.com/vi/lXLpN6PFRH0/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Carry The Glass</div>
+        <div class="rating">⭐ 5/10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        </div>
+    </div>
+</a> 
+
+<!-- VR - игры -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0l_mhX5xhys60Vb4VR8vJ2" target="_blank" class="card" data-title="VR - игры" data-rating="0">
+    <img src="https://i.ytimg.com/vi/tWSR1bdn9Wc/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">VR - игры</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a> 
+
+<!-- Zero Caliber -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3nnZYVuVaReDwXpPbGnf7L" target="_blank" class="card" data-title="Zero Caliber" data-rating="9">
+    <img src="https://i.ytimg.com/vi/a90JQlzey8s/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Zero Caliber</div>
+        <div class="rating">⭐ 9/10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a> 
+
+<!-- Assassin’s Creed Chronicles: Russia -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx08Mjmg57nbCA19SNcnvPD5" target="_blank" class="card" data-title="Assassin’s Creed Chronicles: Russia" data-rating="6">
+    <img src="https://i.ytimg.com/vi/a2VMeJy-55E/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Assassin’s Creed Chronicles: Russia</div>
+        <div class="rating">⭐ 6/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a> 
+
+<!-- Red Dead Online -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3TWDzyXJ2Jt1AHENBEx1xy" target="_blank" class="card" data-title="Red Dead Online" data-rating="8">
+    <img src="https://i.ytimg.com/vi/ptSMCWtL8XI/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Red Dead Online</div>
+        <div class="rating">⭐ 8/10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        <span class="tag chapaev">Chapaev</span>
+        <span class="tag gypl">Gypl</span>
+        <span class="tag lexalol">92LEXALOL92</span>
+
+        </div>
+    </div>
+</a> 
+
+<!-- Tom Clancy’s The Division 2 -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3ykAbcsChxHq0tK--oUM3c" target="_blank" class="card" data-title="Tom Clancy’s The Division 2" data-rating="6">
+    <img src="https://i.ytimg.com/vi/LwU-JMZNPq0/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Tom Clancy’s The Division 2</div>
+        <div class="rating">⭐ 6/10</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        <span class="tag lexalol">92LEXALOL92</span>
+        </div>
+    </div>
+</a> 
+
+<!-- Dead Island 2 -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx33xQ9_euAOuwQZVRUI2k2h" target="_blank" class="card" data-title="Dead Island 2" data-rating="5">
+    <img src="https://i.ytimg.com/vi/PYf2Ca4kE9s/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Dead Island 2</div>
+        <div class="rating">⭐ 5/10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        </div>
+    </div>
+</a> 
+
+<!-- Escape from Tarkov -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2jCSwB44ld-_HX0EX_FdTH" target="_blank" class="card" data-title="Escape from Tarkov" data-rating="3">
+    <img src="https://i.ytimg.com/vi/4844310ZfHM/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Escape from Tarkov</div>
+        <div class="rating">⭐ 3/10</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        <span class="tag decoy">Decoy</span>
+        </div>
+    </div>
+</a> 
+
+<!-- Dying Light 2: Stay Human -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx14083RXXhkmFOjRtrhlYYN" target="_blank" class="card" data-title="Dying Light 2: Stay Human" data-rating="5">
+    <img src="https://i.ytimg.com/vi/xtfcHlakmHw/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Dying Light 2: Stay Human</div>
+        <div class="rating">⭐ 5/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a> 
+
+<!-- Cuphead -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0T-GT8b2TwGlFZ3C_WGuKl" target="_blank" class="card" data-title="Cuphead" data-rating="5">
+    <img src="https://i.ytimg.com/vi/itAiGjT5LjE/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Cuphead</div>
+        <div class="rating">⭐ 5/10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        </div>
+    </div>
+</a>
+
+<!-- Cairn Demo -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1ym3t-FQW6q4SukzcpAxY9" target="_blank" class="card" data-title="Cairn Demo" data-rating="7">
+    <img src="https://i.ytimg.com/vi/vjLS3OCV77w/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Cairn Demo</div>
+        <div class="rating">⭐ 7/10</div>
+    </div>
+</a> 
+
+<!-- SiFu -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1HAlMFxvS7OSt5lUsTIT9F" target="_blank" class="card" data-title="SiFu" data-rating="8">
+    <img src="https://i.ytimg.com/vi/OtxZjPGNYtg/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">SiFu</div>
+        <div class="rating">⭐ 8/10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        </div>
+    </div>
+</a> 
+
+<!-- Split Fiction -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1ggKxq5il0m6YXv9cFVH6P" target="_blank" class="card" data-title="Split Fiction" data-rating="9">
+    <img src="https://i.ytimg.com/vi/lnxochk6Vuk/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Split Fiction</div>
+        <div class="rating">⭐ 9/10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        </div>
+    </div>
+</a> 
+
+<!-- Heavenly Bodies -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3H9ADdv5WOgVAVsJFeffhY" target="_blank" class="card" data-title="Heavenly Bodies" data-rating="7">
+    <img src="https://i.ytimg.com/vi/NJ1-8jk1KB8/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Heavenly Bodies</div>
+        <div class="rating">⭐ 7/10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        </div>
+    </div>
+</a> 
+
+<!-- PayDay 2 -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1FUf7V3D2CDmtVea1PUS9o" target="_blank" class="card" data-title="PayDay 2" data-rating="9">
+    <img src="https://i.ytimg.com/vi/PjYJ22XG7Yg/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">PayDay 2</div>
+        <div class="rating">⭐ 9/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        <span class="tag lexalol">92LEXALOL92</span>
+        </div>
+    </div>
+</a> 
+
+<!-- Tom Clancy’s Ghost Recon Wildlands -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2SGkUk_4uPDKBvWpWuLEMx" target="_blank" class="card" data-title="Tom Clancy’s Ghost Recon Wildlands" data-rating="4">
+    <img src="https://i.ytimg.com/vi/mr165LUmnQc/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Tom Clancy’s Ghost Recon Wildlands</div>
+        <div class="rating">⭐ 4/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        <span class="tag decoy">Decoy</span>
+        </div>
+    </div>
+</a> 
+
+<!-- Back 4 Blood -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3bVS19q-Wgd3medsxBF3ZG" target="_blank" class="card" data-title="Back 4 Blood" data-rating="4">
+    <img src="https://i.ytimg.com/vi/W60htqDAVtU/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Back 4 Blood</div>
+        <div class="rating">⭐ 4/10</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        <span class="tag lexalol">92LEXALOL92</span>
+        </div>
+    </div>
+</a> 
+
+<!-- RICO -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2v1pXWkNlOpU24sOVByMU5" target="_blank" class="card" data-title="RICO" data-rating="5">
+    <img src="https://i.ytimg.com/vi/XNUY8_HKUdE/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">RICO</div>
+        <div class="rating">⭐ 5/10</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a> 
+
+<!-- Mining Mechs -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1fPV9Lt7Bb8TlB8Sy9Sk3U" target="_blank" class="card" data-title="Mining Mechs" data-rating="8">
+    <img src="https://i.ytimg.com/vi/SM7Q-2Te8-4/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Mining Mechs</div>
+        <div class="rating">⭐ 8/10</div>
+        <div class="tags">
+        <span class="tag lexalol">92LEXALOL92</span>
+        </div>
+    </div>
+</a> 
+
+<!-- Raft -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3-LYzS4oNLvIbEnFR1Rsc7" target="_blank" class="card" data-title="Raft" data-rating="8">
+    <img src="https://i.ytimg.com/vi/Yc3sNnzKuZY/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Raft</div>
+        <div class="rating">⭐ 8/10</div>
+        <div class="tags">
+        <span class="tag mattkeelock">Matt Keelock</span>
+        <span class="tag chapaev">Chapaev</span>
+        <span class="tag evanes">Evanes</span>
+        <span class="tag yars">Yars</span>
+        <span class="tag bellactris">Bellactris</span>
+        </div>
+    </div>
+</a> 
+
+<!-- A Little To The Left -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2ANuyxgcv1M269CGzhAP8_" target="_blank" class="card" data-title="A Little To The Left" data-rating="7">
+    <img src="https://i.ytimg.com/vi/wz5RnEcSR_c/vn8ohSaiXlA.jpg">
+
+    <div class="content">
+        <div class="title">A Little To The Left</div>
+        <div class="rating">⭐ 7/10</div>
+        <div class="tags">
+        <span class="tag bellactris">Bellactris</span>
+        </div>
+    </div>
+</a> 
+
+<!-- Sniper Elite 5 -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3mSpqrdUPmZHSvsUvCd0ql" target="_blank" class="card" data-title="Sniper Elite 5" data-rating="6">
+    <img src="https://i.ytimg.com/vi/_FzoEzsoq-w/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Sniper Elite 5</div>
+        <div class="rating">⭐ 6/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a> 
+
+<!-- Sons of the Forest -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0Ms1dBDKqh8CFSrZyN2_kj" target="_blank" class="card" data-title="Sons of the Forest" data-rating="5">
+    <img src="https://i.ytimg.com/vi/sLvG0AOhGv8/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Sons of the Forest</div>
+        <div class="rating">⭐ 5/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        <span class="tag decoy">Decoy</span>
+        </div>
+    </div>
+</a> 
+
+<!-- Control -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0Ro9a4BoklD0xHn5lo9ivl" target="_blank" class="card" data-title="Control" data-rating="9">
+    <img src="https://i.ytimg.com/vi/wz5RnEcSR_c/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Control</div>
+        <div class="rating">⭐ 9/10</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a> 
+
+<!-- Alan Wake -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2RJJexTkbKFoaCaUhDRJM7" target="_blank" class="card" data-title="Alan Wake" data-rating="9">
+    <img src="https://i.ytimg.com/vi/_3egQmxCWnY/hqdefault.jpg">
+    <div class="content">
+        <div class="title">Alan Wake</div>
+        <div class="rating">⭐ 9/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a>
+
+<!-- Homefront -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx38pKEi83F8OpGZ16VE_Z0N" target="_blank" class="card" data-title="Homefront: The Revolution" data-rating="7">
+    <img src="https://i.ytimg.com/vi/AwCbajaVWCY/hqdefault.jpg">
+    <div class="content">
+        <div class="title">Homefront: The Revolution</div>
+        <div class="rating">⭐ 7/10</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a>
+
+<!-- John Carpenter's Toxic Commando -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0QYwaeZJ8ANtLU2_GOOU5F" target="_blank" class="card" data-title="John Carpenter's Toxic Commando" data-rating="6">
+    <img src="https://i.ytimg.com/vi/7JY26JeIv-E/hqdefault.jpg">
+    <div class="content">
+        <div class="title">John Carpenter's Toxic Commando</div>
+        <div class="rating">⭐ 6/10</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a>
+
+<!-- The Final Station -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2f2WBlG0hU5Rs84QxQsGfq" target="_blank" class="card" data-title="The Final Station" data-rating="5">
+    <img src="https://i.ytimg.com/vi/oMfRyBgKvIo/hqdefault.jpg">
+    <div class="content">
+        <div class="title">The Final Station</div>
+        <div class="rating">⭐ 5/10</div>
+    </div>
+</a>
+
+<!-- Quantum Break -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0ly5IZviammKqqn2yd0Z_W" target="_blank" class="card" data-title="Quantum Break" data-rating="10">
+    <img src="https://i.ytimg.com/vi/4ih9cFN98HM/hqdefault.jpg">
+    <div class="content">
+        <div class="title">Quantum Break</div>
+        <div class="rating">⭐ 10/10</div>
+    </div>
+</a>
+
+<!-- My Friend Pedro -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0xxhf1lg3DzFmtj_UeKv1e" target="_blank" class="card" data-title="My Friend Pedro" data-rating="6">
+    <img src="https://i.ytimg.com/vi/QUGXIofL058/hqdefault.jpg">
+    <div class="content">
+        <div class="title">My Friend Pedro</div>
+        <div class="rating">⭐ 6/10</div>
+    </div>
+</a>
+
+<!-- Cairn -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx06LP27wd66N61WIifx87pH" target="_blank" class="card" data-title="Cairn" data-rating="4">
+    <img src="https://i.ytimg.com/vi/RqVC0tm9N4Q/hqdefault.jpg">
+    <div class="content">
+        <div class="title">Cairn</div>
+        <div class="rating">⭐ 4/10</div>
+    </div>
+</a>
+    
+<!-- Helldivers 2 -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2sw1yQdj-JWXdpqN36JAlN" target="_blank" class="card" data-title="Helldivers 2" data-rating="7">
+    <img src="https://i.ytimg.com/vi/snUN2v9H7LE/hqdefault.jpg">
+    <div class="content">
+        <div class="title">Helldivers 2</div>
+        <div class="rating">⭐ 7/10</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a>
+
+<!-- BoneLab -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2S8VhjcMBq29cJkWffV4Po" target="_blank" class="card" data-title="BoneLab" data-rating="6">
+    <img src="https://i.ytimg.com/vi/ka3h8yhhDr0/hqdefault.jpg">
+    <div class="content">
+        <div class="title">BoneLab</div>
+        <div class="rating">⭐ 6/10</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a>
+
+<!-- Assassin's Creed Chronicles: India -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0_3wSbX6K0wX2Liv_7mQd4" target="_blank" class="card" data-title="Assassin's Creed Chronicles: India" data-rating="4">
+    <img src="https://i.ytimg.com/vi/EFyNFJsYgfk/hqdefault.jpg">
+    <div class="content">
+        <div class="title">Assassin's Creed Chronicles: India</div>
+        <div class="rating">⭐ 4/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a>
+
+<!-- Bodycam -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3eapYzTATUUZQcr39wv8pZ" target="_blank" class="card" data-title="Bodycam" data-rating="4">
+    <img src="https://i.ytimg.com/vi/OaX0hYOsd60/hqdefault.jpg">
+    <div class="content">
+        <div class="title">Bodycam</div>
+        <div class="rating">⭐ 4/10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a>
+
+<!-- The Forever Winter -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0cZpd-PRvwIysfrhaFc7dQ" target="_blank" class="card" data-title="The Forever Winter" data-rating="5">
+    <img src="https://i.ytimg.com/vi/utELM35OKhk/hqdefault.jpg">
+    <div class="content">
+        <div class="title">The Forever Winter</div>
+        <div class="rating">⭐ 5/10</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        <span class="tag decoy">Decoy</span>
+        </div>
+    </div>
+</a>
+
+<!-- 39 Days to Mars -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2gKFWF6XhUkLPdyGz4k0gS" target="_blank" class="card" data-title="39 Days to Mars" data-rating="6">
+    <img src="https://i.ytimg.com/vi/18edtm4qsBA/hqdefault.jpg">
+    <div class="content">
+        <div class="title">39 Days to Mars</div>
+        <div class="rating">⭐ 6/10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        </div>
+    </div>
+</a>
+
+<!-- Deadlight -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0IlDdGho_E6DPi7_to1PNk" target="_blank" class="card" data-title="Deadlight" data-rating="4">
+    <img src="https://i.ytimg.com/vi/RHJZbi8C2fE/hqdefault.jpg">
+    <div class="content">
+        <div class="title">Deadlight</div>
+        <div class="rating">⭐ 4/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a>
+
+<!-- Zombie Army 4: Dead War -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3EaDhaV45BhtmZHrIYHaOk" target="_blank" class="card" data-title="Zombie Army 4: Dead War" data-rating="4">
+    <img src="https://i.ytimg.com/vi/wGWhRMI3t7Q/hqdefault.jpg">
+    <div class="content">
+        <div class="title">Zombie Army 4: Dead War</div>
+        <div class="rating">⭐ 4/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a>
+
+<!-- Do Not Feed the Monkeys -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3W7cyqLnwsZG5MCnx6zIg-" target="_blank" class="card" data-title="Do Not Feed the Monkeys" data-rating="8">
+    <img src="https://i.ytimg.com/vi/UuvOw7UwLJQ/hqdefault.jpg">
+    <div class="content">
+        <div class="title">Do Not Feed the Monkeys</div>
+        <div class="rating">⭐ 8/10</div>
+        <div class="tags">
+        <span class="tag bellactris">Bellactris</span>
+        </div>
+    </div>
+</a>
+
+<!-- Until Dawn -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0u6PJsZHAE1065hxt3EJY8" target="_blank" class="card" data-title="Until Dawn" data-rating="8">
+    <img src="https://i.ytimg.com/vi/oghewvwhkx8/hqdefault.jpg">
+    <div class="content">
+        <div class="title">Until Dawn</div>
+        <div class="rating">⭐ 8/10</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        <span class="tag bellactris">Bellactris</span>
+        <span class="tag immortalzodd">Immortal Zodd</span>
+        </div>
+    </div>
+</a>
+
+<!-- The Casting of Frank Stone -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx21n80hfgV-CkcQXglbloaz" target="_blank" class="card" data-title="The Casting of Frank Stone" data-rating="3">
+    <img src="https://i.ytimg.com/vi/aXsxX4uglI8/hqdefault.jpg">
+    <div class="content">
+        <div class="title">The Casting of Frank Stone</div>
+        <div class="rating">⭐ 3/10</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a>
+
+<!-- State of Decay 2 -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2MDLkANTvjayXX6eifp_vh" target="_blank" class="card" data-title="State of Decay 2" data-rating="6">
+    <img src="https://i.ytimg.com/vi/98_MvniCPsc/hqdefault.jpg">
+    <div class="content">
+        <div class="title">State of Decay 2</div>
+        <div class="rating">⭐ 6/10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        </div>
+    </div>
+</a>
+
+<!-- Griefhelm -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3N6-GcIVyQzkRJ9E4FkhrO" target="_blank" class="card" data-title="Griefhelm" data-rating="8">
+    <img src="https://i.ytimg.com/vi/QDYKYZkdDsI/hqdefault.jpg">
+    <div class="content">
+        <div class="title">Griefhelm</div>
+        <div class="rating">⭐ 8/10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        </div>
+    </div>
+</a>
+
+<!-- Chained Together -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2Q4atYWMZ9EL3DJ29rr44S" target="_blank" class="card" data-title="Chained Together" data-rating="7">
+    <img src="https://i.ytimg.com/vi/KIy_m-AvoQY/hqdefault.jpg">
+    <div class="content">
+        <div class="title">Chained Together</div>
+        <div class="rating">⭐ 7/10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        </div>
+    </div>
+</a>
+
+<!-- Deathloop -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3jMwIWIsNn4e_sJcGd2Ftf" target="_blank" class="card" data-title="Deathloop" data-rating="6">
+    <img src="https://i.ytimg.com/vi/rRjl__Xq5lU/hqdefault.jpg">
+    <div class="content">
+        <div class="title">Deathloop</div>
+        <div class="rating">⭐ 6/10</div>
+        <div class="tags">
+        <span class="tag bellactris">Bellactris</span>
+        </div>
+    </div>
+</a>
+
+<!-- Doll Imposter -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0iZgJOn-sDo-oB6UnxDbrc" target="_blank" class="card" data-title="Doll Imposter" data-rating="6">
+    <img src="https://i.ytimg.com/vi/m3kiIJHdpOs/hqdefault.jpg">
+    <div class="content">
+        <div class="title">Doll Imposter</div>
+        <div class="rating">⭐ 6/10</div>
+        <div class="tags">
+        <span class="tag bellactris">Bellactris</span>
+        </div>
+    </div>
+</a>
+
+<!-- Perfect Heist 2 -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0kEMvZRsp6O35nEfN7teFg" target="_blank" class="card" data-title="Perfect Heist 2" data-rating="4">      
+    <img src="https://i.ytimg.com/vi/NX-x1B-lqzc/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Perfect Heist 2</div>
+        <div class="rating">⭐ 4/10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        <span class="tag chapaev">Chapaev</span>        
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a>
+
+<!-- Only Up: With Friends -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx34iWiJS0mZ3GAQLKe8zQYv" target="_blank" class="card" data-title="Only Up: With Friends" data-rating="3">
+    <img src="https://i.ytimg.com/vi/OHZ3-dnpszA/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Only Up: With Friends</div>
+        <div class="rating">⭐ 3/10</div>
+        <div class="tags">
+        <span class="tag bellactris">Bellactris</span>
+        <span class="tag evanes">Evanes</span>
+        </div>
+    </div>
+</a>
+
+<!-- Only Up! -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2vg87JdKMAoohU5RQA6Mcb" target="_blank" class="card" data-title="Only Up!" data-rating="6">
+    <img src="https://i.ytimg.com/vi/UiBvPgJCqpc/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Only Up!</div>
+        <div class="rating">⭐ 6/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a>
+
+<!-- One-armed Robber -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2QpL15KOPqFd-hLkM0YlOe" target="_blank" class="card" data-title="One-armed Robber" data-rating="5">     
+    <img src="https://i.ytimg.com/vi/3tfdresiYF0/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">One-armed Robber</div>
+        <div class="rating">⭐ 5/10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a>
+
+<!-- Boneworks -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2lFzvKQW1YWEFwObGNY9hN" target="_blank" class="card" data-title="Boneworks" data-rating="7">
+    <img src="https://i.ytimg.com/vi/0tQ3vv1dHrI/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Boneworks</div>
+        <div class="rating">⭐ 7/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a>
+
+<!-- Counter-Strike 2 -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3Lap0r7LJqwcmJYgbJYp4R" target="_blank" class="card" data-title="Counter-Strike 2" data-rating="3">
+    <img src="https://i.ytimg.com/vi/2g7yn0GdPrA/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Counter-Strike 2</div>
+        <div class="rating">⭐ 3/10</div>
+        <div class="tags">
+        <span class="tag AlenemyBeast">AlenemyBeast</span>
+        <span class="tag kolya_timofeev">kolya_timofeev</span>
+        <span class="tag Raiqor">Raiqor</span>
+        </div>
+    </div>
+</a>
+
+<!-- Superliminal -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx24lkedy-A_LaJ82WwpVI06" target="_blank" class="card" data-title="Superliminal" data-rating="7">
+    <img src="https://i.ytimg.com/vi/R63Aorji-bM/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Superliminal</div>
+        <div class="rating">⭐ 7/10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        </div>
+    </div>
+</a>
+
+<!-- Garry's Mod -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx12ihQ8L-XhJf9lLmUiQe3r" target="_blank" class="card" data-title="Garry's Mod" data-rating="4">
+    <img src="https://i.ytimg.com/vi/XsJKUrGiiLE/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Garry's Mod</div>
+        <div class="rating">⭐ 4/10</div>
+        <div class="tags">
+        <span class="tag evanes">Evanes</span>
+        <span class="tag yars">Yars</span>
+        </div>
+    </div>
+</a>
+
+<!-- Watch Dogs -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1JkGDFTvv2WJyJSJFOeULE" target="_blank" class="card" data-title="Watch Dogs" data-rating="5">
+    <img src="https://i.ytimg.com/vi/bWbLDuV68Mw/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Watch Dogs</div>
+        <div class="rating">⭐ 5/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a>
+
+<!-- Battlefield Hardline [Multiplayer] -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1t-NQK6CflkAuatau_mKhY" target="_blank" class="card" data-title="Battlefield Hardline [Multiplayer]" data-rating="6">
+    <img src="https://i.ytimg.com/vi/xjXgsAWPPiI/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Battlefield Hardline [Multiplayer]</div>
+        <div class="rating">⭐ 6/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a>
+
+<!-- Half-Life: Opposing Force -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3I5cvXCYMV35R2oIRUGqGX" target="_blank" class="card" data-title="Half-Life: Opposing Force" data-rating="8">
+    <img src="https://i.ytimg.com/vi/rR71gPLgGMY/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Half-Life: Opposing Force</div>
+        <div class="rating">⭐ 8/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a>
+
+<!-- Assassin's Creed: Chronicles: China -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3DPeEke7OyOVQ0ooFtG-Rt" target="_blank" class="card" data-title="Assassin's Creed: Chronicles: China" data-rating="4">
+    <img src="https://i.ytimg.com/vi/sc7Lzcipq1I/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Assassin's Creed: Chronicles: China</div>
+        <div class="rating">⭐ 4/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a>
+
+<!-- Aperture Desk Job -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3rTXQcIo8KYsLNhqbT1lcJ" target="_blank" class="card" data-title="Aperture Desk Job" data-rating="6">
+    <img src="https://i.ytimg.com/vi/BSEIrArceBM/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Aperture Desk Job</div>
+        <div class="rating">⭐ 6/10</div>
+    </div>
+</a>
+
+<!-- Pico Park -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3w5YthTmMBNe7sEOp-h1tw" target="_blank" class="card" data-title="Pico Park" data-rating="8">
+    <img src="https://i.ytimg.com/vi/qgEoDSXnso4/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Pico Park</div>
+        <div class="rating">⭐ 8/10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        </div>
+    </div>
+</a>
+
+<!-- PayDay 3 -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0MEeDYicwGm-ggZfrZRdUH" target="_blank" class="card" data-title="PayDay 3" data-rating="6">
+    <img src="https://i.ytimg.com/vi/S2x6sVNPmgE/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">PayDay 3</div>
+        <div class="rating">⭐ 6/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a>
+
+<!-- PayDay 3 Beta -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3a7tdJjHB2CByyvNlJomAG" target="_blank" class="card" data-title="PayDay 3 Beta" data-rating="7">
+    <img src="https://i.ytimg.com/vi/8l4S01neTyw/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">PayDay 3 Beta</div>
+        <div class="rating">⭐ 7/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a>
+
+<!-- Remnant 2 -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2ykzdLxrvhZ-jk1Uq18Qdd" target="_blank" class="card" data-title="Remnant 2" data-rating="0">
+    <img src="https://i.ytimg.com/vi/4tLlT2Lt2lc/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Remnant 2</div>
+        <div class="rating">⭐ -/10</div>
+        <div class="tags">
+        <span class="tag vastor">Vashtor</span>
+        <span class="tag decoy">Decoy</span>
+        </div>
+    </div>
+</a>
+
+<!-- Infamous: Second Son [PS4] -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2zSb2osMnuy5rXzcmIldqn" target="_blank" class="card" data-title="Infamous: Second Son [PS4]" data-rating="9">
+    <img src="https://i.ytimg.com/vi/ggu9r2wld8U/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Infamous: Second Son [PS4]</div>
+        <div class="rating">⭐ 9/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a>
+
+<!-- The Quarry -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1ptbMUFZqFmWPT4TS1nc_7" target="_blank" class="card" data-title="The Quarry" data-rating="6">
+    <img src="https://i.ytimg.com/vi/U3ThYgNtoLE/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">The Quarry</div>
+        <div class="rating">⭐ 6/10</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a>
+
+<!-- Voidtrain -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2717OX6F16GZEcT9hPO1vv" target="_blank" class="card" data-title="Voidtrain" data-rating="7">
+    <img src="https://i.ytimg.com/vi/p4W1CjG6EP4/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Voidtrain</div>
+        <div class="rating">⭐ 7/10</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a>
+
+<!-- Titanfall 2 -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0G_m3z3CWUVkZ05dhuIQO_" target="_blank" class="card" data-title="Titanfall 2" data-rating="8">
+    <img src="https://i.ytimg.com/vi/GLJJlg6iyAI/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Titanfall 2</div>
+        <div class="rating">⭐ 8/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a>
+
+<!-- Phasmophobia -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3eWPWRn_luLrjjivNlssf3" target="_blank" class="card" data-title="Phasmophobia" data-rating="6">
+    <img src="https://i.ytimg.com/vi/MRF8ge5FTGo/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Phasmophobia</div>
+        <div class="rating">⭐ 6/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        <span class="tag decoy">Decoy</span>
+        </div>
+    </div>
+</a>
+
+<!-- Atomic Heart -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0Tyc8g9PSJUnQ7lc1lO21f" target="_blank" class="card" data-title="Atomic Heart" data-rating="0">
+    <img src="https://i.ytimg.com/vi/IuI_22awyQk/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Atomic Heart</div>
+        <div class="rating">⭐ -/10</div>
+    </div>
+</a>
+
+<!-- Jusant -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0AQiOGYY3SIHo3gBrwj6qZ" target="_blank" class="card" data-title="Jusant" data-rating="8">
+    <img src="https://i.ytimg.com/img/no_thumbnail.jpg">
+
+    <div class="content">
+        <div class="title">Jusant</div>
+        <div class="rating">⭐ 8/10</div>
+    </div>
+</a>
+
+<!-- Tiny Tina’s Wonderlands -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2sHlldJVdqUZ7KilRSwog9" target="_blank" class="card" data-title="Tiny Tina’s Wonderlands" data-rating="4">
+    <img src="https://i.ytimg.com/vi/ZovRbSo18I8/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Tiny Tina’s Wonderlands</div>
+        <div class="rating">⭐ 4/10</div>
+    </div>
+</a>
+
+<!-- Returnal -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0bkbPf0skBrLnoEfnxKhSy" target="_blank" class="card" data-title="Returnal" data-rating="7">
+    <img src="https://i.ytimg.com/vi/KkuHD9zw54A/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Returnal</div>
+        <div class="rating">⭐ 7/10</div>
+    </div>
+</a>
+
+<!-- Hogwarts Legacy -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2seZJK0ZqWhVOyzIPK_7H_" target="_blank" class="card" data-title="Hogwarts Legacy" data-rating="6">
+    <img src="https://i.ytimg.com/vi/NcJMWpUXghc/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Hogwarts Legacy</div>
+        <div class="rating">⭐ 6/10</div>
+    </div>
+</a>
+
+<!-- Chernobylite -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2YHauF8SthBgSiQFX1Bg0_" target="_blank" class="card" data-title="Chernobylite" data-rating="7">
+    <img src="https://i.ytimg.com/vi/2XM_WthwTxw/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Chernobylite</div>
+        <div class="rating">⭐ 7/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a>
+
+<!-- The Anacrusis -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2Yb-KB9wQDDczehSJs5BBT" target="_blank" class="card" data-title="The Anacrusis" data-rating="3">
+    <img src="https://i.ytimg.com/vi/UZtYz5jM7uw/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">The Anacrusis</div>
+        <div class="rating">⭐ 3/10</div>
+        <div class="tags">
+        <span class="tag kagero">Kagero</span>
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a>
+
+<!-- The Last of Us [PS4] -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2JXmLz7dvSsjmcne2L661M" target="_blank" class="card" data-title="The Last of Us [PS4]" data-rating="8">
+    <img src="https://i.ytimg.com/vi/DsL-USirNC8/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">The Last of Us [PS4]</div>
+        <div class="rating">⭐ 8/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a>
+
+<!-- The Dark Pictures Anthology: The Devil in Me -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0GfIGYdEAp_HqK6q9jhblb" target="_blank" class="card" data-title="The Dark Pictures Anthology: The Devil in Me" data-rating="4">
+    <img src="https://i.ytimg.com/vi/qFUuQSBlTXo/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">The Dark Pictures Anthology: The Devil in Me</div>
+        <div class="rating">⭐ 4/10</div>
+        <div class="tags">
+        <span class="tag kagero">Kagero</span>
+        </div>
+    </div>
+</a>
+
+<!-- The Past Within -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3yaw9CMUkE5vr47sQsOfjk" target="_blank" class="card" data-title="The Past Within" data-rating="8">
+    <img src="https://i.ytimg.com/vi/nPfMWoKxVjc/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">The Past Within</div>
+        <div class="rating">⭐ 8/10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        </div>
+    </div>
+</a>
+
+<!-- Keep Talking and Nobody Explodes -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1m56p22ls3VgztChw2o6bK" target="_blank" class="card" data-title="Keep Talking and Nobody Explodes" data-rating="7">
+    <img src="https://i.ytimg.com/vi/UyEuBsKhH_M/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Keep Talking and Nobody Explodes</div>
+        <div class="rating">⭐ 7/10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a>
+
+<!-- Untitled Goose Game -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3O76KO9iHdeq-jPiT-uS_5" target="_blank" class="card" data-title="Untitled Goose Game" data-rating="8">
+    <img src="https://i.ytimg.com/vi/eZozzdA_Fjw/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Untitled Goose Game</div>
+        <div class="rating">⭐ 8/10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        </div>
+    </div>
+</a>
+
+<!-- The Dark Pictures Anthology: House of Ashes -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0AheFEEckfmv9ERCzbOFNO" target="_blank" class="card" data-title="The Dark Pictures Anthology: House of Ashes" data-rating="9">
+    <img src="https://i.ytimg.com/vi/sB2OyPTcjqA/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">The Dark Pictures Anthology: House of Ashes</div>
+        <div class="rating">⭐ 9/10</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a>
+
+<!-- Operation: Tango -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0GOZfzVJH7EPzdMppk7sTP" target="_blank" class="card" data-title="Operation: Tango" data-rating="7">
+    <img src="https://i.ytimg.com/vi/M8aViGSQZOs/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Operation: Tango</div>
+        <div class="rating">⭐ 7/10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        </div>
+    </div>
+</a>
+
+<!-- The Dark Pictures Anthology: Little Hope -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx36HBMcJ9icwxCRXAyuFPvu" target="_blank" class="card" data-title="The Dark Pictures Anthology: Little Hope" data-rating="7">
+    <img src="https://i.ytimg.com/vi/HW8lizG2Dd0/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">The Dark Pictures Anthology: Little Hope</div>
+        <div class="rating">⭐ 7/10</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a>
+
+<!-- The Dark Pictures Anthology: Man of Medan -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3CIj7OLbr7To27IqrbZuPU" target="_blank" class="card" data-title="The Dark Pictures Anthology: Man of Medan" data-rating="7">
+    <img src="https://i.ytimg.com/vi/sGxBb_bUKZU/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">The Dark Pictures Anthology: Man of Medan</div>
+        <div class="rating">⭐ 7/10</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a>
+
+<!-- Apex Legends -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3jENlrtQbNk-LENusuQLUx" target="_blank" class="card" data-title="Apex Legends" data-rating="4">
+    <img src="https://i.ytimg.com/vi/S0St6-J-7NQ/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Apex Legends</div>
+        <div class="rating">⭐ 4/10</div>
+        <div class="tags">
+            <!-- напарники -->
+        </div>
+    </div>
+</a>
+
+<!-- Dying Light -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2YoqNo8EcXAP_QDk4AxNbN" target="_blank" class="card" data-title="Dying Light" data-rating="8">
+    <img src="https://i.ytimg.com/vi/BMs3Ev52_qo/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Dying Light</div>
+        <div class="rating">⭐ 8/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a>
+
+<!-- Thunder Tier One -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx16YlgmkIVtALUfs7kkLRuC" target="_blank" class="card" data-title="Thunder Tier One" data-rating="5">
+    <img src="https://i.ytimg.com/vi/qAGxw6pYlNw/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Thunder Tier One</div>
+        <div class="rating">⭐ 5/10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a>
+
+<!-- Twelve Minutes -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0BRkrCfj0msVLPGKFdzsCj" target="_blank" class="card" data-title="Twelve Minutes" data-rating="9">
+    <img src="https://i.ytimg.com/vi/KZEnm2VreGA/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Twelve Minutes</div>
+        <div class="rating">⭐ 9/10</div>
+    </div>
+</a>
+
+<!-- Call of Duty: Vanguard Beta -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1xybfyOikwqDQOjrRRl-vo" target="_blank" class="card" data-title="Call of Duty: Vanguard Beta" data-rating="2">
+    <img src="https://i.ytimg.com/vi/3wrwuaggSyk/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Call of Duty: Vanguard Beta</div>
+        <div class="rating">⭐ 2/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a>
+
+<!-- Back 4 Blood: Open Beta -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2SQCD3aUbFJmFgrF_aQOR6" target="_blank" class="card" data-title="Back 4 Blood: Open Beta" data-rating="5">
+    <img src="https://i.ytimg.com/vi/o8OCS-bFhVo/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Back 4 Blood: Open Beta</div>
+        <div class="rating">⭐ 5/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a>
+
+<!-- Arizona Sunshine -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2L6iyzErYMEizSoath1yk-" target="_blank" class="card" data-title="Arizona Sunshine" data-rating="6">
+    <img src="https://i.ytimg.com/vi/0rjg2cKZNTM/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Arizona Sunshine</div>
+        <div class="rating">⭐ 6/10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        </div>
+    </div>
+</a>
+
+<!-- Metro: Last Light -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1uWPO1vgLph6bxcow_Hnb3" target="_blank" class="card" data-title="Metro: Last Light" data-rating="5">
+    <img src="https://i.ytimg.com/vi/wyIY2lvO290/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Metro: Last Light</div>
+        <div class="rating">⭐ 5/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a>
+
+<!-- Half-Life: Alyx -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3eECLxtQPjNDKUo3l-ktkY" target="_blank" class="card" data-title="Half-Life: Alyx" data-rating="9">
+    <img src="https://i.ytimg.com/vi/8MHXE_2QMyM/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Half-Life: Alyx</div>
+        <div class="rating">⭐ 9/10</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a>
+
+<!-- Rick and Morty: Virtual Rick-ality -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0Ojl2PFe7f0suxdjzAfcZg" target="_blank" class="card" data-title="Rick and Morty: Virtual Rick-ality" data-rating="6">
+    <img src="https://i.ytimg.com/vi/BRLudw52ir8/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Rick and Morty: Virtual Rick-ality</div>
+        <div class="rating">⭐ 6/10</div>
+    </div>
+</a>
+
+<!-- Job Simulator -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2wHvdV70FOZw3Q7Zb5JFrF" target="_blank" class="card" data-title="Job Simulator" data-rating="7">
+    <img src="https://i.ytimg.com/vi/0iuFNTqGAXs/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Job Simulator</div>
+        <div class="rating">⭐ 7/10</div>
+    </div>
+</a>
+
+<!-- Duck Season -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx36pvpXzTmaLLsKP06JOTbK" target="_blank" class="card" data-title="Duck Season" data-rating="4">
+    <img src="https://i.ytimg.com/vi/WZ7YpMnzHks/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Duck Season</div>
+        <div class="rating">⭐ 4/10</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a>
+
+<!-- I Expect You To Die -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1bcI9izDg84wmuuTwjr54P" target="_blank" class="card" data-title="I Expect You To Die" data-rating="6">
+    <img src="https://i.ytimg.com/vi/MfpIe3gGNpA/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">I Expect You To Die</div>
+        <div class="rating">⭐ 6/10</div>
+    </div>
+</a>
+
+<!-- Remnant: From the Ashes -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx31vBH_5MSxmuDJ0eV0XBTI" target="_blank" class="card" data-title="Remnant: From the Ashes" data-rating="">
+    <img src="https://i.ytimg.com/vi/gVBSmryB6e0/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Remnant: From the Ashes</div>
+        <div class="rating">⭐ /10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a>
+
+<!-- Breathedge -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3Qm-o0zSPRU4d9mRfizKn1" target="_blank" class="card" data-title="Breathedge" data-rating="0">
+    <img src="https://i.ytimg.com/vi/uwo5ZC0Dyvc/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Breathedge</div>
+        <div class="rating">⭐ -/10</div>
+        <div class="tags">
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a>
+
+<!-- Viscera Cleanup Detail -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx17mo8jFxy7Ek9r_-xcd09C" target="_blank" class="card" data-title="Viscera Cleanup Detail" data-rating="7">
+    <img src="https://i.ytimg.com/vi/tNdbOq4VoFo/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Viscera Cleanup Detail</div>
+        <div class="rating">⭐ 7/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a>
+
+<!-- S.T.A.L.K.E.R.: Clear Sky -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3VySLNdFI2d6uqAQRRivRK" target="_blank" class="card" data-title="S.T.A.L.K.E.R.: Clear Sky" data-rating="0">
+    <img src="https://i.ytimg.com/vi/K2Cw1-PiHB4/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">S.T.A.L.K.E.R.: Clear Sky</div>
+        <div class="rating">⭐ -/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a>
+
+<!-- Satisfactory -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0f3JXEMM_dnj6PbSye5OGt" target="_blank" class="card" data-title="Satisfactory" data-rating="0">
+    <img src="https://i.ytimg.com/vi/h3yEdxP6vX0/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Satisfactory</div>
+        <div class="rating">⭐ -/10</div>
+        <div class="tags">
+        <span class="tag mattkeelock">Matt Keelock</span>
+        </div>
+    </div>
+</a>
+
+<!-- Fallout 76 -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0qA5NKotYeWn3RRZaOtUbD" target="_blank" class="card" data-title="Fallout 76" data-rating="0">
+    <img src="https://i.ytimg.com/vi/M11wsCf8UHg/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Fallout 76</div>
+        <div class="rating">⭐ -/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a>
+
+<!-- Dead Island: Riptide -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3Cf2Zsw8mY5mWJfd8QBqkW" target="_blank" class="card" data-title="Dead Island: Riptide" data-rating="7">
+    <img src="https://i.ytimg.com/vi/jogjNvvapHE/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Dead Island: Riptide</div>
+        <div class="rating">⭐ 7/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a>
+
+<!-- For Honor -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx38UnLyZ8XEEvXji1pMlecl" target="_blank" class="card" data-title="For Honor" data-rating="5">
+    <img src="https://i.ytimg.com/vi/29vEIPdAINg/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">For Honor</div>
+        <div class="rating">⭐ 5/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a>
+
+<!-- Mirror’s Edge: Catalyst -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx35Cp3YDh0V30jnrh1AlnVs" target="_blank" class="card" data-title="Mirror’s Edge: Catalyst" data-rating="3">
+    <img src="https://i.ytimg.com/vi/NdhSc3WVJ-s/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Mirror’s Edge: Catalyst</div>
+        <div class="rating">⭐ 3/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a>
+
+<!-- Metro 2033 -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1LwgaZ-mo4UCQ6hjCtFapQ" target="_blank" class="card" data-title="Metro 2033" data-rating="7">
+    <img src="https://i.ytimg.com/vi/RUYp4vmcLfw/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Metro 2033</div>
+        <div class="rating">⭐ 7/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a>
+
+<!-- Arma 3 -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1uTm9WTH85Ftm5PGwdA1Mh" target="_blank" class="card" data-title="Arma 3" data-rating="5">
+    <img src="https://i.ytimg.com/vi/dyhbxOdXqmE/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Arma 3</div>
+        <div class="rating">⭐ 5/10</div>
+    </div>
+</a>
+
+<!-- Hotline Miami 2: Wrong Number -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0lcAEvzqo3cCxhbqyQ4TT5" target="_blank" class="card" data-title="Hotline Miami 2: Wrong Number" data-rating="6">
+    <img src="https://i.ytimg.com/vi/NNxP2gP_m2s/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Hotline Miami 2: Wrong Number</div>
+        <div class="rating">⭐ 6/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a>
+
+<!-- Battlefield 4: Multiplayer -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1zfFfj23Q_4YDHOum4qXGG" target="_blank" class="card" data-title="Battlefield 4: Multiplayer" data-rating="6">
+    <img src="https://i.ytimg.com/vi/11DYv6TzUJk/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Battlefield 4: Multiplayer</div>
+        <div class="rating">⭐ 6/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a>
+
+<!-- S.T.A.L.K.E.R.: Shadow of Chernobyl -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3zFkPdlmYvATxit9bcKn4W" target="_blank" class="card" data-title="S.T.A.L.K.E.R.: Shadow of Chernobyl" data-rating="5">
+    <img src="https://i.ytimg.com/vi/iYfRfDy6XEc/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">S.T.A.L.K.E.R.: Shadow of Chernobyl</div>
+        <div class="rating">⭐ 5/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
+        </div>
+    </div>
+</a>
+
+<!-- Far Cry 5 -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1WeEqgyodi_vt5TvLKKyiF" target="_blank" class="card" data-title="Far Cry 5" data-rating="0">
+    <img src="https://i.ytimg.com/vi/ImKCLBK0Rdw/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Far Cry 5</div>
+        <div class="rating">⭐ -/10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        </div>
+    </div>
+</a>
+
+<!-- ИСКЛЮЧЕНИЯ 
+ [Архивное]
+ https://www.youtube.com/playlist?list=PLBiYVz7a5fx0q6NuYHmS3k3-pHC-nGUQI
+ [Wolfenstein: Youngblood]
+ https://www.youtube.com/playlist?list=PLBiYVz7a5fx14YXhpETCrZ5Su0pRZqGQq
+-->
+</div>
+
+<script>
+const container = document.querySelector('.container');
+const cards = Array.from(container.children);
+
+// 🔤 Сортировка A-Z
+function sortAZ() {
+    const sorted = [...cards].sort((a, b) =>
+        a.dataset.title.localeCompare(b.dataset.title)
+    );
+    container.innerHTML = "";
+    sorted.forEach(card => container.appendChild(card));
+}
+
+// ⭐ Сортировка по рейтингу
+function sortRating() {
+    const sorted = [...cards].sort((a, b) =>
+        b.dataset.rating - a.dataset.rating
+    );
+    container.innerHTML = "";
+    sorted.forEach(card => container.appendChild(card));
+}
+
+// 🔍 Поиск
+document.getElementById('search').addEventListener('input', (e) => {
+    const value = e.target.value.toLowerCase();
+
+    cards.forEach(card => {
+        const title = card.dataset.title.toLowerCase();
+        card.style.display = title.includes(value) ? "block" : "none";
+    });
+});
+</script>
+
+</body>
+</html>
