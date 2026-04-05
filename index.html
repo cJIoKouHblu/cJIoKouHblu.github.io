@@ -170,27 +170,132 @@ h1 {
     opacity: 0.5;
 }
 
+.nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.nav a {
+    padding: 8px 14px;
+    border-radius: 12px;
+    background: #1a1f2b;
+    color: #bbb;
+    text-decoration: none;
+    font-size: 14px;
+    border: 1px solid transparent;
+    transition: 0.2s;
+}
+
+.nav a:hover {
+    background: #242b3a;
+    color: white;
+    border-color: #333;
+}
+
+.nav a.active {
+    background: #2a3245;
+    color: #fff;
+    border-color: #444;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.back {
+    margin-left: 8px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 28px;
+    height: 28px;
+
+    border-radius: 8px;
+    background: rgba(255,255,255,0.05);
+
+    color: #5a7bff;
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+.back:hover {
+    background: rgba(255,255,255,0.12);
+    color: white;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.card.coming {
+    opacity: 0.6;
+}
+
+.search-box {
+    position: relative;
+    display: inline-block;
+}
+
+#search {
+    padding-right: 30px;
+}
+
+#clear-search {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+    font-size: 16px;
+    display: none;
+    user-select: none;
+}
+
+#clear-search:hover {
+    color: white;
+}
+
 </style>
 
 </head>
 <body>
 
-<h1>🏆 Витрина прохождений</h1>
+<h1 id="ttop">🏆 Витрина прохождений</h1>
 <p class="subtitle">
     <img src="10167/cJIoKouHblu.png" class="logo">
     Прохождения cJIoKouHblu
 </p>
 
 <div class="controls">
-    <input type="text" id="search" placeholder="Поиск..." oninput="searchCards()" />
+
+    <div class="search-box">
+        <input type="text" id="search" placeholder="Поиск..." oninput="searchCards()" />
+        <span id="clear-search">✖</span>
+    </div>
 
     <button onclick="sortAZ()">A-Z</button>
     <button onclick="sortRating()">★</button>
     <button onclick="resetSort()">✖</button>
+
+</div>
+
+<div class="nav">
+    <a href="#top">🔥 Главное</a>
+    <a href="#main">🎮 Основное</a>
+    <a href="#beta">🧪 Демки и беты</a>
+    <a href="#watched">👁️ Посмотрел</a>
 </div>
 
  
-<h2>🔥 Главное</h2>
+<h2 id="top">🔥 Главное</h2>
 <div class="container top">
 
 <!-- Подборка приколов -->
@@ -273,8 +378,10 @@ h1 {
 </div>
 
 
-
-<h2>🎮 Прохождения</h2>
+<h2 id="main">
+    🎮 Прохождения
+    <a href="#ttop" class="back">↑</a>
+</h2>
 <div class="container">
 
 <!-- Stay in Tarlov -->
@@ -1356,7 +1463,7 @@ h1 {
         </div>
     </div>
 </a><a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2ANuyxgcv1M269CGzhAP8_" target="_blank" class="card" data-title="A Little To The Left" data-rating="7" data-order="31">
-    <img src="https://i.ytimg.com/vi/wz5RnEcSR_c/vn8ohSaiXlA.jpg">
+    <img src="10167/ALttL.jpg">
 
     <div class="content">
         <div class="title">A Little To The Left</div>
@@ -2678,7 +2785,10 @@ h1 {
 </div>
 
 
-<h2>🧪 Демки и беты</h2>
+<h2 id="beta">
+    🧪 Демки и беты
+    <a href="#ttop" class="back">↑</a>
+</h2>
 <div class="container low">
 
 <!-- John Carpenter's Toxic Commando Demo -->
@@ -2854,7 +2964,10 @@ h1 {
 </div>
 
 
-<h2>📦 Посмотрел</h2>
+<h2 id="watched">
+    👁️ Посмотрел
+    <a href="#ttop" class="back">↑</a>
+</h2>
 <div class="container low">
 
 <!-- Bodycam -->
@@ -3102,9 +3215,6 @@ h1 {
         </div>
     </div>
 </a>
-
-</div>
-
 </div>
 
 <script>
@@ -3238,130 +3348,48 @@ function resetFilters() {
 
 </script>
 
-<!--
 <script>
+document.querySelectorAll('.card img').forEach(img => {
 
-// ==============================
-// 🧠 DRAG & DROP + СОХРАНЕНИЕ
-// ==============================
+    img.onload = () => {
 
-// текущая перетаскиваемая карточка
-let dragged = null;
+        const card = img.closest('.card');
 
-// навешиваем события на ВСЕ карточки
-document.querySelectorAll('.card').forEach(card => {
+        // если картинка подозрительно маленькая или квадратная → это заглушка
+        if (img.naturalWidth < 200 || img.naturalHeight < 120) {
+            
+            img.src = "10167/soon.jpg";
+            card.classList.add("coming");
 
-    // начали тащить
-    card.addEventListener('dragstart', () => {
-        dragged = card;
-        card.classList.add('dragging');
-    });
+            const rating = card.querySelector('.rating');
+            if (rating) rating.textContent = "";
 
-    // закончили тащить
-    card.addEventListener('dragend', () => {
-        card.classList.remove('dragging');
-    });
-
-    // разрешаем "падение"
-    card.addEventListener('dragover', (e) => {
-        e.preventDefault();
-    });
-
-    // бросили карточку
-    card.addEventListener('drop', () => {
-
-        // защита от самого себя
-        if (!dragged || dragged === card) return;
-
-        // вставляем перед текущей карточкой
-        card.parentNode.insertBefore(dragged, card);
-
-        // сохраняем порядок
-        saveOrder();
-    });
+            card.removeAttribute("href");
+            card.style.pointerEvents = "none";
+        }
+    };
 
 });
-
-
-// ==============================
-// 💾 СОХРАНЕНИЕ ПОРЯДКА
-// ==============================
-
-function saveOrder() {
-
-    const containers = document.querySelectorAll('.container');
-    const data = [];
-
-    containers.forEach(container => {
-
-        const ids = [...container.querySelectorAll('.card')]
-            .map(card => {
-
-                // берём playlist ID из ссылки
-                const url = card.getAttribute("href");
-                const match = url.match(/list=([a-zA-Z0-9_-]+)/);
-
-                return match ? match[1] : url;
-            });
-
-        data.push(ids);
-    });
-
-    // сохраняем в браузере
-    localStorage.setItem("cardOrder", JSON.stringify(data));
-}
-
-
-// ==============================
-// 🔄 ЗАГРУЗКА ПОРЯДКА
-// ==============================
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const saved = JSON.parse(localStorage.getItem("cardOrder"));
-    if (!saved) return;
-
-    const containers = document.querySelectorAll('.container');
-
-    containers.forEach((container, i) => {
-
-        const order = saved[i];
-        if (!order) return;
-
-        const map = {};
-
-        // создаём карту id → карточка
-        container.querySelectorAll('.card').forEach(card => {
-
-            const url = card.getAttribute("href");
-            const match = url.match(/list=([a-zA-Z0-9_-]+)/);
-
-            const id = match ? match[1] : url;
-
-            map[id] = card;
-        });
-
-        // применяем порядок
-        order.forEach(id => {
-            if (map[id]) {
-                container.appendChild(map[id]);
-            }
-        });
-    });
-});
-
-
-// ==============================
-// ❌ СБРОС ПОРЯДКА (опционально)
-// ==============================
-
-function resetOrder() {
-    localStorage.removeItem("cardOrder");
-    location.reload();
-}
-
 </script>
--->
+
+<script>
+const input = document.getElementById('search');
+const clear = document.getElementById('clear-search');
+
+// показать/скрыть крестик
+input.addEventListener('input', () => {
+    clear.style.display = input.value ? 'block' : 'none';
+});
+
+// очистка
+clear.addEventListener('click', () => {
+    input.value = "";
+    clear.style.display = "none";
+
+    // обновляем поиск (ВАЖНО)
+    input.dispatchEvent(new Event('input'));
+});
+</script>
 
 </body>
 </html>
