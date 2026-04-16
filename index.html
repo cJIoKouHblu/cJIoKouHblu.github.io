@@ -285,6 +285,7 @@ html {
 
 </style>
 
+
 </head>
 <body>
 
@@ -392,6 +393,16 @@ html {
         <div class="tags">
         <span class="tag gypl">Gypl</span>
         </div>
+    </div>
+</a>
+
+<!-- Ghostrunner -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0_Di0L80xqfbEbg1o1rY8f" target="_blank" class="card" data-title="Ghostrunner" data-rating="6">
+    <img src="https://i.ytimg.com/vi/hhTwoLfOUZ4.jpg">
+
+    <div class="content">
+        <div class="title">Ghostrunner</div>
+        <div class="rating">⭐ 6/10</div>
     </div>
 </a>
 
@@ -812,6 +823,16 @@ html {
     </div>
 </a>
 
+<!-- Tomb Raider -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0XJ-_WnHIKQK6Xt00NkZ6D" target="_blank" class="card" data-title="Tomb Raider" data-rating="4">
+    <img src="https://i.ytimg.com/vi/DrtUDepywDM/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Tomb Raider</div>
+        <div class="rating">⭐ 4/10</div>
+    </div>
+</a>
+
 <!-- Watch Dogs 2 -->
 <a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1F8SXFcCh_u8WJsaMB3twG" target="_blank" class="card" data-title="Watch Dogs 2" data-rating="6" data-order="8">
     <img src="https://i.ytimg.com/vi/euqEqou-YDs/hqdefault.jpg">
@@ -1149,7 +1170,7 @@ html {
 
 <!-- Jusant -->
 <a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1uj7D3_nz859DEy4w1EPPo" target="_blank" class="card" data-title="Jusant" data-rating="8" data-order="70">
-    <img src="https://i.ytimg.com/img/no_thumbnail.jpg">
+    <img src="https://i.ytimg.com/vi/FtnucvOv4YU/hqdefault.jpg">
 
     <div class="content">
         <div class="title">Jusant</div>
@@ -3248,6 +3269,7 @@ html {
 </div>
 
 
+
 </div>
 
 <script>
@@ -3381,6 +3403,130 @@ function resetFilters() {
 
 </script>
 
+<!-- Сортировка грызуном
+<script>
+
+// ==============================
+// 🧠 DRAG & DROP + СОХРАНЕНИЕ
+// ==============================
+
+// текущая перетаскиваемая карточка
+let dragged = null;
+
+// навешиваем события на ВСЕ карточки
+document.querySelectorAll('.card').forEach(card => {
+
+    // начали тащить
+    card.addEventListener('dragstart', () => {
+        dragged = card;
+        card.classList.add('dragging');
+    });
+
+    // закончили тащить
+    card.addEventListener('dragend', () => {
+        card.classList.remove('dragging');
+    });
+
+    // разрешаем "падение"
+    card.addEventListener('dragover', (e) => {
+        e.preventDefault();
+    });
+
+    // бросили карточку
+    card.addEventListener('drop', () => {
+
+        // защита от самого себя
+        if (!dragged || dragged === card) return;
+
+        // вставляем перед текущей карточкой
+        card.parentNode.insertBefore(dragged, card);
+
+        // сохраняем порядок
+        saveOrder();
+    });
+
+});
+
+
+// ==============================
+// 💾 СОХРАНЕНИЕ ПОРЯДКА
+// ==============================
+
+function saveOrder() {
+
+    const containers = document.querySelectorAll('.container');
+    const data = [];
+
+    containers.forEach(container => {
+
+        const ids = [...container.querySelectorAll('.card')]
+            .map(card => {
+
+                // берём playlist ID из ссылки
+                const url = card.getAttribute("href");
+                const match = url.match(/list=([a-zA-Z0-9_-]+)/);
+
+                return match ? match[1] : url;
+            });
+
+        data.push(ids);
+    });
+
+    // сохраняем в браузере
+    localStorage.setItem("cardOrder", JSON.stringify(data));
+}
+
+
+// ==============================
+// 🔄 ЗАГРУЗКА ПОРЯДКА
+// ==============================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const saved = JSON.parse(localStorage.getItem("cardOrder"));
+    if (!saved) return;
+
+    const containers = document.querySelectorAll('.container');
+
+    containers.forEach((container, i) => {
+
+        const order = saved[i];
+        if (!order) return;
+
+        const map = {};
+
+        // создаём карту id → карточка
+        container.querySelectorAll('.card').forEach(card => {
+
+            const url = card.getAttribute("href");
+            const match = url.match(/list=([a-zA-Z0-9_-]+)/);
+
+            const id = match ? match[1] : url;
+
+            map[id] = card;
+        });
+
+        // применяем порядок
+        order.forEach(id => {
+            if (map[id]) {
+                container.appendChild(map[id]);
+            }
+        });
+    });
+});
+
+
+// ==============================
+// ❌ СБРОС ПОРЯДКА (опционально)
+// ==============================
+
+function resetOrder() {
+    localStorage.removeItem("cardOrder");
+    location.reload();
+}
+
+</script>
+-->
 
 <script>
 document.querySelectorAll('.card img').forEach(img => {
