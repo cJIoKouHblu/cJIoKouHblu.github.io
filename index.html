@@ -285,10 +285,104 @@ html {
     color: white;
 }
 
+.view-switch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    display: inline-flex;
+
+    padding: 1px;
+
+
+    background: #0f1115;
+    border-radius: 4px;
+    overflow: hidden;
+
+    box-shadow:
+        inset 0 1px 2px rgba(0,0,0,0.7);
+}
+
+.view-btn {
+    background: transparent;
+
+    color: #4d5665;
+
+    padding: 4px 10px;
+
+    border: none;
+
+    position: relative;
+}
+
+.view-btn:hover {
+    color: #8a93a5;
+}
+
+/* ВИТРИНА */
+
+.view-showcase.active {
+    color: #6d86c8;
+
+    background: #0b0f14;
+
+    box-shadow:
+        inset 2px 2px 4px rgba(0,0,0,0.95);
+
+    border-radius: 3px;
+    
+    z-index: 1;
+}
+
+/* ХРОНОЛОГИЯ */
+
+.view-timeline.active {
+    color: #5d9a72;
+
+    background: #0b0f14;
+
+    box-shadow:
+        inset 2px 2px 4px rgba(0,0,0,0.95);
+
+    border-radius: 3px;
+
+    z-index: 1;
+}
+
+.year-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 40px 20px 20px 20px;
+}
+
+.year-title {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    margin-left: 80px;
+
+    font-size: 42px;
+    font-weight: 700;
+
+    color: #6b7485;
+}
+
+.year-count {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    margin-left: 80px;
+
+    font-size: 28px;
+    font-weight: 600;
+
+    color: #586174;
+}
+
 </style>
 
 
-<!-- v61 -->
+<!-- v70 -->
 
 </head>
 
@@ -302,11 +396,20 @@ html {
 </p>
 
 <div class="controls">
-
     <div class="search-box">
         <input type="text" id="search" placeholder="Поиск..." oninput="searchCards()" />
         <span id="clear-search">✖</span>
     </div>
+</div>
+
+<div class="view-switch">
+    <button class="view-btn view-showcase active">Витрина</button>
+    <button class="view-btn view-timeline">Хронология</button>
+</div>
+
+<div id="showcase-view">
+
+<div class="controls">
 
     <button onclick="sortAZ()">A-Z</button>
     <button onclick="sortRating()">★</button>
@@ -342,7 +445,7 @@ html {
 </a> 
 
 <!-- PayDay 2 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1FUf7V3D2CDmtVea1PUS9o" target="_blank" class="card" data-title="PayDay 2" data-rating="9">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1FUf7V3D2CDmtVea1PUS9o" target="_blank" class="card" data-title="PayDay 2" data-rating="9" data-closed="2024-11-30">
     <img src="10167/PayDay 2.jpg">
 
     <div class="content">
@@ -356,7 +459,7 @@ html {
 </a> 
 
 <!-- Borderlands 2 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx19f__OSNXToFJx__yngbk8" target="_blank" class="card" data-title="Borderlands 2" data-rating="10">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx19f__OSNXToFJx__yngbk8" target="_blank" class="card" data-title="Borderlands 2" data-rating="10" data-closed="2024-12-10">
     <img src="10167/Borderlands 2.jpg">
 
     <div class="content">
@@ -369,7 +472,7 @@ html {
 </a>
 
 <!-- Quantum Break -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0ly5IZviammKqqn2yd0Z_W" target="_blank" class="card" data-title="Quantum Break" data-rating="10">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0ly5IZviammKqqn2yd0Z_W" target="_blank" class="card" data-title="Quantum Break" data-rating="10" data-closed="2026-02-13">
     <img src="10167/Quantum Break.jpg">
     <div class="content">
         <div class="title">Quantum Break</div>
@@ -378,7 +481,7 @@ html {
 </a>
 
 <!-- Split Fiction -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1ggKxq5il0m6YXv9cFVH6P" target="_blank" class="card" data-title="Split Fiction" data-rating="9">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1ggKxq5il0m6YXv9cFVH6P" target="_blank" class="card" data-title="Split Fiction" data-rating="9" data-closed="2025-05-24">
     <img src="10167/Split Fiction.jpg">
 
     <div class="content">
@@ -403,7 +506,7 @@ html {
 </a>
 
 <!-- Ghostrunner -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0_Di0L80xqfbEbg1o1rY8f" target="_blank" class="card" data-title="Ghostrunner" data-rating="6">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0_Di0L80xqfbEbg1o1rY8f" target="_blank" class="card" data-title="Ghostrunner" data-rating="6" data-closed="2026-04-24">
     <img src="10167/Ghostrunner.jpg">
 
     <div class="content">
@@ -437,7 +540,7 @@ html {
 </a>
 
 <!-- World War Z -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3SRH6eJZcfe4FNpqhM_2EL" target="_blank" class="card" data-title="World War Z" data-rating="8" data-order="1">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3SRH6eJZcfe4FNpqhM_2EL" target="_blank" class="card" data-title="World War Z" data-rating="8" data-order="1" data-closed="2025-02-08">
     <img src="10167/World War Z.jpg">
 
     <div class="content">
@@ -453,7 +556,7 @@ html {
 </a>
 
 <!-- Ready or Not -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3Bv1rXn94box6sR0ltNDtR" target="_blank" class="card" data-title="Ready or Not" data-rating="9" data-order="10">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3Bv1rXn94box6sR0ltNDtR" target="_blank" class="card" data-title="Ready or Not" data-rating="9" data-order="10" data-closed="2024-08-31">
     <img src="https://i.ytimg.com/vi/eWLM8utuVc8/hqdefault.jpg">
 
     <div class="content">
@@ -469,7 +572,7 @@ html {
 </a>
 
 <!-- Control -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0Ro9a4BoklD0xHn5lo9ivl" target="_blank" class="card" data-title="Control" data-rating="9" data-order="34">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0Ro9a4BoklD0xHn5lo9ivl" target="_blank" class="card" data-title="Control" data-rating="9" data-order="34" data-closed="2026-03-13">
     <img src="10167/Control.jpg">
 
     <div class="content">
@@ -482,7 +585,7 @@ html {
 </a>
 
 <!-- Alan Wake’s American Nightmare -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx29OYNxfi5Ynbwra2Q8eHT5" target="_blank" class="card" data-title="Alan Wake’s American Nightmare" data-rating="9" data-order="3">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx29OYNxfi5Ynbwra2Q8eHT5" target="_blank" class="card" data-title="Alan Wake’s American Nightmare" data-rating="9" data-order="3" data-closed="2026-03-07">
     <img src="10167/Alan Wake's American Nightmare.jpg">
 
     <div class="content">
@@ -492,7 +595,7 @@ html {
 </a>
 
 <!-- Detroit: Become Human -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3WDPqWB0x6VsX2b82RjB6g" target="_blank" class="card" data-title="Detroit: Become Human" data-rating="9" data-order="6">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3WDPqWB0x6VsX2b82RjB6g" target="_blank" class="card" data-title="Detroit: Become Human" data-rating="9" data-order="6" data-closed="2026-02-06">
     <img src="10167/Detroit Become Human.jpg">
     <div class="content">
         <div class="title">Detroit: Become Human</div>
@@ -501,7 +604,7 @@ html {
 </a>
 
 <!-- Alan Wake -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2RJJexTkbKFoaCaUhDRJM7" target="_blank" class="card" data-title="Alan Wake" data-rating="9" data-order="35">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2RJJexTkbKFoaCaUhDRJM7" target="_blank" class="card" data-title="Alan Wake" data-rating="9" data-order="35" data-closed="2026-03-03">
     <img src="https://i.ytimg.com/vi/_3egQmxCWnY/hqdefault.jpg">
     <div class="content">
         <div class="title">Alan Wake</div>
@@ -514,7 +617,7 @@ html {
 </a>
 
 <!-- Infamous: Second Son [PS4] -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2zSb2osMnuy5rXzcmIldqn" target="_blank" class="card" data-title="Infamous: Second Son [PS4]" data-rating="9" data-order="65">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2zSb2osMnuy5rXzcmIldqn" target="_blank" class="card" data-title="Infamous: Second Son [PS4]" data-rating="9" data-order="65" data-closed="2023-11-23">
     <img src="https://i.ytimg.com/vi/ggu9r2wld8U/hqdefault.jpg">
 
     <div class="content">
@@ -527,7 +630,7 @@ html {
 </a>
 
 <!-- Raft -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3-LYzS4oNLvIbEnFR1Rsc7" target="_blank" class="card" data-title="Raft" data-rating="8" data-order="30">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3-LYzS4oNLvIbEnFR1Rsc7" target="_blank" class="card" data-title="Raft" data-rating="8" data-order="30" data-closed="2025-03-14">
     <img src="https://i.ytimg.com/vi/Yc3sNnzKuZY/hqdefault.jpg">
 
     <div class="content">
@@ -544,7 +647,7 @@ html {
 </a>
 
 <!-- Borderlands -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1yxjeRcHm__Uee_7wAxk-T" target="_blank" class="card" data-title="Borderlands" data-rating="7" data-order="156">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1yxjeRcHm__Uee_7wAxk-T" target="_blank" class="card" data-title="Borderlands" data-rating="7" data-order="156" data-closed="2020-06-03">
     <img src="10167/Borderlands.jpg">
 
     <div class="content">
@@ -557,7 +660,7 @@ html {
 </a>
 
 <!-- The Last of Us [PS4] -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2JXmLz7dvSsjmcne2L661M" target="_blank" class="card" data-title="The Last of Us [PS4]" data-rating="8" data-order="76">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2JXmLz7dvSsjmcne2L661M" target="_blank" class="card" data-title="The Last of Us [PS4]" data-rating="8" data-order="76" data-closed="2023-02-07">
     <img src="https://i.ytimg.com/vi/DsL-USirNC8/hqdefault.jpg">
 
     <div class="content">
@@ -570,7 +673,7 @@ html {
 </a>
 
 <!-- Dead Island 2 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx33xQ9_euAOuwQZVRUI2k2h" target="_blank" class="card" data-title="Dead Island 2" data-rating="5" data-order="20">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx33xQ9_euAOuwQZVRUI2k2h" target="_blank" class="card" data-title="Dead Island 2" data-rating="5" data-order="20" data-closed="2025-07-24">
     <img src="https://i.ytimg.com/vi/PYf2Ca4kE9s/hqdefault.jpg">
 
     <div class="content">
@@ -583,7 +686,7 @@ html {
 </a>
 
 <!-- Titanfall 2 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0G_m3z3CWUVkZ05dhuIQO_" target="_blank" class="card" data-title="Titanfall 2" data-rating="8" data-order="68">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0G_m3z3CWUVkZ05dhuIQO_" target="_blank" class="card" data-title="Titanfall 2" data-rating="8" data-order="68" data-closed="2023-05-10">
     <img src="https://i.ytimg.com/vi/GLJJlg6iyAI/hqdefault.jpg">
 
     <div class="content">
@@ -596,7 +699,7 @@ html {
 </a>
 
 <!-- SiFu -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1HAlMFxvS7OSt5lUsTIT9F" target="_blank" class="card" data-title="SiFu" data-rating="8" data-order="24">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1HAlMFxvS7OSt5lUsTIT9F" target="_blank" class="card" data-title="SiFu" data-rating="8" data-order="24" data-closed="2024-01-11">
     <img src="https://i.ytimg.com/vi/OtxZjPGNYtg/hqdefault.jpg">
 
     <div class="content">
@@ -609,7 +712,7 @@ html {
 </a>
 
 <!-- Clair Obscur: Expedition 33 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2KPIwO0yavOg9UWmiNLu8y" target="_blank" class="card" data-title="Clair Obscur: Expedition 33" data-rating="8" data-order="12">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2KPIwO0yavOg9UWmiNLu8y" target="_blank" class="card" data-title="Clair Obscur: Expedition 33" data-rating="8" data-order="12" data-closed="2025-12-15">
     <img src="10167/Clair Obscur Expedition 33.jpg">
 
     <div class="content">
@@ -622,7 +725,7 @@ html {
 </a>
 
 <!-- Cuphead -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0T-GT8b2TwGlFZ3C_WGuKl" target="_blank" class="card" data-title="Cuphead" data-rating="5" data-order="23">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0T-GT8b2TwGlFZ3C_WGuKl" target="_blank" class="card" data-title="Cuphead" data-rating="5" data-order="23" data-closed="2025-06-04">
     <img src="https://i.ytimg.com/vi/itAiGjT5LjE/hqdefault.jpg">
 
     <div class="content">
@@ -635,7 +738,7 @@ html {
 </a>
 
 <!-- Homefront: The Revolution -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx38pKEi83F8OpGZ16VE_Z0N" target="_blank" class="card" data-title="Homefront: The Revolution" data-rating="7" data-order="36">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx38pKEi83F8OpGZ16VE_Z0N" target="_blank" class="card" data-title="Homefront: The Revolution" data-rating="7" data-order="36" data-closed="2026-03-25">
     <img src="10167/Homefront The Revolution.jpg">
     <div class="content">
         <div class="title">Homefront: The Revolution</div>
@@ -647,7 +750,7 @@ html {
 </a>
 
 <!-- Back 4 Blood -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3bVS19q-Wgd3medsxBF3ZG" target="_blank" class="card" data-title="Back 4 Blood" data-rating="4" data-order="27">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3bVS19q-Wgd3medsxBF3ZG" target="_blank" class="card" data-title="Back 4 Blood" data-rating="4" data-order="27" data-closed="2025-04-04">
     <img src="10167/Back 4 Blood.jpg">
 
     <div class="content">
@@ -661,7 +764,7 @@ html {
 </a>
 
 <!-- Voidtrain -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2717OX6F16GZEcT9hPO1vv" target="_blank" class="card" data-title="Voidtrain" data-rating="7" data-order="67">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2717OX6F16GZEcT9hPO1vv" target="_blank" class="card" data-title="Voidtrain" data-rating="7" data-order="67" data-closed="2023-12-10">
     <img src="10167/Voidtrain.jpg">
 
     <div class="content">
@@ -674,7 +777,7 @@ html {
 </a>
 
 <!-- The Dark Pictures Anthology: Man of Medan -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3CIj7OLbr7To27IqrbZuPU" target="_blank" class="card" data-title="The Dark Pictures Anthology: Man of Medan" data-rating="7" data-order="83">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3CIj7OLbr7To27IqrbZuPU" target="_blank" class="card" data-title="The Dark Pictures Anthology: Man of Medan" data-rating="7" data-order="83" data-closed="2022-04-02">
     <img src="https://i.ytimg.com/vi/sGxBb_bUKZU/hqdefault.jpg">
 
     <div class="content">
@@ -687,7 +790,7 @@ html {
 </a>
 
 <!-- The Dark Pictures Anthology: House of Ashes -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0AheFEEckfmv9ERCzbOFNO" target="_blank" class="card" data-title="The Dark Pictures Anthology: House of Ashes" data-rating="9" data-order="80">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0AheFEEckfmv9ERCzbOFNO" target="_blank" class="card" data-title="The Dark Pictures Anthology: House of Ashes" data-rating="9" data-order="80" data-closed="2022-06-04">
     <img src="https://i.ytimg.com/vi/sB2OyPTcjqA/hqdefault.jpg">
 
     <div class="content">
@@ -700,7 +803,7 @@ html {
 </a>
 
 <!-- The Dark Pictures Anthology: Little Hope -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx36HBMcJ9icwxCRXAyuFPvu" target="_blank" class="card" data-title="The Dark Pictures Anthology: Little Hope" data-rating="7" data-order="82">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx36HBMcJ9icwxCRXAyuFPvu" target="_blank" class="card" data-title="The Dark Pictures Anthology: Little Hope" data-rating="7" data-order="82" data-closed="2022-05-07">
     <img src="https://i.ytimg.com/vi/HW8lizG2Dd0/hqdefault.jpg">
 
     <div class="content">
@@ -713,7 +816,7 @@ html {
 </a>
 
 <!-- The Dark Pictures Anthology: The Devil in Me -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0GfIGYdEAp_HqK6q9jhblb" target="_blank" class="card" data-title="The Dark Pictures Anthology: The Devil in Me" data-rating="4" data-order="77">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0GfIGYdEAp_HqK6q9jhblb" target="_blank" class="card" data-title="The Dark Pictures Anthology: The Devil in Me" data-rating="4" data-order="77" data-closed="2023-01-09">
     <img src="https://i.ytimg.com/vi/qFUuQSBlTXo/hqdefault.jpg">
 
     <div class="content">
@@ -726,7 +829,7 @@ html {
 </a>
 
 <!-- The Quarry -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1ptbMUFZqFmWPT4TS1nc_7" target="_blank" class="card" data-title="The Quarry" data-rating="6" data-order="66">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1ptbMUFZqFmWPT4TS1nc_7" target="_blank" class="card" data-title="The Quarry" data-rating="6" data-order="66" data-closed="2023-06-28">
     <img src="https://i.ytimg.com/vi/U3ThYgNtoLE/hqdefault.jpg">
 
     <div class="content">
@@ -739,7 +842,7 @@ html {
 </a>
 
 <!-- The Casting of Frank Stone -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx21n80hfgV-CkcQXglbloaz" target="_blank" class="card" data-title="The Casting of Frank Stone" data-rating="3" data-order="48">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx21n80hfgV-CkcQXglbloaz" target="_blank" class="card" data-title="The Casting of Frank Stone" data-rating="3" data-order="48" data-closed="2024-11-30">
     <img src="https://i.ytimg.com/vi/aXsxX4uglI8/hqdefault.jpg">
     <div class="content">
         <div class="title">The Casting of Frank Stone</div>
@@ -751,7 +854,7 @@ html {
 </a>
 
 <!-- Until Dawn -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0u6PJsZHAE1065hxt3EJY8" target="_blank" class="card" data-title="Until Dawn" data-rating="8" data-order="47">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0u6PJsZHAE1065hxt3EJY8" target="_blank" class="card" data-title="Until Dawn" data-rating="8" data-order="47" data-closed="2024-12-31">
     <img src="https://i.ytimg.com/vi/oghewvwhkx8/hqdefault.jpg">
     <div class="content">
         <div class="title">Until Dawn</div>
@@ -765,7 +868,7 @@ html {
 </a>
 
 <!-- The Dark Pictures Anthology: Directive 8020 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3Gx8SZpF8oCeWx2cjySlKC" target="_blank" class="card" data-title="The Dark Pictures Anthology: Directive 8020" data-rating="3">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3Gx8SZpF8oCeWx2cjySlKC" target="_blank" class="card" data-title="The Dark Pictures Anthology: Directive 8020" data-rating="3" data-closed="2026-06-17">
     <img src="https://i.ytimg.com/vi/agAJ3DeT3hU/hqdefault.jpg">
 
     <div class="content">
@@ -778,7 +881,7 @@ html {
 </a>
 
 <!-- Tom Clancy’s The Division 2 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3ykAbcsChxHq0tK--oUM3c" target="_blank" class="card" data-title="Tom Clancy’s The Division 2" data-rating="6" data-order="19">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3ykAbcsChxHq0tK--oUM3c" target="_blank" class="card" data-title="Tom Clancy’s The Division 2" data-rating="6" data-order="19" data-closed="2025-08-05">
     <img src="https://i.ytimg.com/vi/LwU-JMZNPq0/hqdefault.jpg">
 
     <div class="content">
@@ -792,7 +895,7 @@ html {
 </a>
 
 <!-- John Carpenter's Toxic Commando -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0QYwaeZJ8ANtLU2_GOOU5F" target="_blank" class="card" data-title="John Carpenter's Toxic Commando" data-rating="6" data-order="37">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0QYwaeZJ8ANtLU2_GOOU5F" target="_blank" class="card" data-title="John Carpenter's Toxic Commando" data-rating="6" data-order="37" data-closed="2026-03-18">
     <img src="https://i.ytimg.com/vi/7JY26JeIv-E/hqdefault.jpg">
     <div class="content">
         <div class="title">John Carpenter's Toxic Commando</div>
@@ -804,7 +907,7 @@ html {
 </a>
 
 <!-- Warhammer 40,000: Space Marine 2 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1Hmi5Zm3u_2pv7oge2oMHp" target="_blank" class="card" data-title="Warhammer 40,000: Space Marine 2" data-rating="6">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1Hmi5Zm3u_2pv7oge2oMHp" target="_blank" class="card" data-title="Warhammer 40,000: Space Marine 2" data-rating="6" data-closed="2026-06-25">
     <img src="https://i.ytimg.com/vi/tA2keUWoMa8/hqdefault.jpg">
 
     <div class="content">
@@ -817,7 +920,7 @@ html {
 </a>
 
 <!-- Peak -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2szQfIF3PgXBOQB1bHw9X4" target="_blank" class="card" data-title="Peak" data-rating="6" data-order="4">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2szQfIF3PgXBOQB1bHw9X4" target="_blank" class="card" data-title="Peak" data-rating="6" data-order="4" data-closed="2025-11-01">
     <img src="10167/Peak.jpg">
 
     <div class="content">
@@ -831,7 +934,7 @@ html {
 </a>
 
 <!-- Carry The Glass -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3AFAFA6Z_FF57LTSWqv1cm" target="_blank" class="card" data-title="Carry The Glass" data-rating="5" data-order="15">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3AFAFA6Z_FF57LTSWqv1cm" target="_blank" class="card" data-title="Carry The Glass" data-rating="5" data-order="15" data-closed="2025-11-22">
     <img src="https://i.ytimg.com/vi/lXLpN6PFRH0/hqdefault.jpg">
 
     <div class="content">
@@ -844,7 +947,7 @@ html {
 </a>
 
 <!-- Escape the Backrooms -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0fqbahiRJ_Dce7sazz9Xw6" target="_blank" class="card" data-title="Escape the Backrooms" data-rating="5" data-order="9">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0fqbahiRJ_Dce7sazz9Xw6" target="_blank" class="card" data-title="Escape the Backrooms" data-rating="5" data-order="9" data-closed="2025-10-30">
     <img src="https://i.ytimg.com/vi/KOXjjtRGf9g/hqdefault.jpg">
 
     <div class="content">
@@ -857,7 +960,7 @@ html {
 </a>
 
 <!-- Tomb Raider -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0XJ-_WnHIKQK6Xt00NkZ6D" target="_blank" class="card" data-title="Tomb Raider" data-rating="4">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0XJ-_WnHIKQK6Xt00NkZ6D" target="_blank" class="card" data-title="Tomb Raider" data-rating="4" data-closed="2026-04-30">
     <img src="https://i.ytimg.com/vi/DrtUDepywDM/hqdefault.jpg">
 
     <div class="content">
@@ -867,7 +970,7 @@ html {
 </a>
 
 <!-- Watch Dogs 2 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1F8SXFcCh_u8WJsaMB3twG" target="_blank" class="card" data-title="Watch Dogs 2" data-rating="6" data-order="8">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1F8SXFcCh_u8WJsaMB3twG" target="_blank" class="card" data-title="Watch Dogs 2" data-rating="6" data-order="8" data-closed="2026-01-20">
     <img src="https://i.ytimg.com/vi/euqEqou-YDs/hqdefault.jpg">
 
     <div class="content">
@@ -880,7 +983,7 @@ html {
 </a>
 
 <!-- Superliminal -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx24lkedy-A_LaJ82WwpVI06" target="_blank" class="card" data-title="Superliminal" data-rating="7" data-order="56">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx24lkedy-A_LaJ82WwpVI06" target="_blank" class="card" data-title="Superliminal" data-rating="7" data-order="56" data-closed="2024-05-03">
     <img src="https://i.ytimg.com/vi/R63Aorji-bM/hqdefault.jpg">
 
     <div class="content">
@@ -893,7 +996,7 @@ html {
 </a>
 
 <!-- Escape from Tarkov -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2jCSwB44ld-_HX0EX_FdTH" target="_blank" class="card" data-title="Escape from Tarkov" data-rating="3" data-order="21">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2jCSwB44ld-_HX0EX_FdTH" target="_blank" class="card" data-title="Escape from Tarkov" data-rating="3" data-order="21" data-closed="2025-06-30">
     <img src="https://i.ytimg.com/vi/4844310ZfHM/hqdefault.jpg">
 
     <div class="content">
@@ -907,7 +1010,7 @@ html {
 </a>
 
 <!-- Zero Caliber -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3nnZYVuVaReDwXpPbGnf7L" target="_blank" class="card" data-title="Zero Caliber" data-rating="9" data-order="16">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3nnZYVuVaReDwXpPbGnf7L" target="_blank" class="card" data-title="Zero Caliber" data-rating="9" data-order="16" data-closed="2025-10-04">
     <img src="https://i.ytimg.com/vi/a90JQlzey8s/hqdefault.jpg">
 
     <div class="content">
@@ -921,7 +1024,7 @@ html {
 </a>
 
 <!-- Heavenly Bodies -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3H9ADdv5WOgVAVsJFeffhY" target="_blank" class="card" data-title="Heavenly Bodies" data-rating="7" data-order="25">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3H9ADdv5WOgVAVsJFeffhY" target="_blank" class="card" data-title="Heavenly Bodies" data-rating="7" data-order="25" data-closed="2025-05-17">
     <img src="https://i.ytimg.com/vi/NJ1-8jk1KB8/hqdefault.jpg">
 
     <div class="content">
@@ -982,7 +1085,7 @@ html {
 </a>
 
 <!-- Operation: Tango -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0GOZfzVJH7EPzdMppk7sTP" target="_blank" class="card" data-title="Operation: Tango" data-rating="7" data-order="81">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0GOZfzVJH7EPzdMppk7sTP" target="_blank" class="card" data-title="Operation: Tango" data-rating="7" data-order="81" data-closed="2022-05-21">
     <img src="https://i.ytimg.com/vi/M8aViGSQZOs/hqdefault.jpg">
 
     <div class="content">
@@ -995,7 +1098,7 @@ html {
 </a>
 
 <!-- Biped -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2wnb3hoqR1DhnT_VdXdgf7" target="_blank" class="card" data-title="Biped" data-rating="6">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2wnb3hoqR1DhnT_VdXdgf7" target="_blank" class="card" data-title="Biped" data-rating="6" data-closed="2026-06-12">
     <img src="https://i.ytimg.com/vi/0tE9sGiidCc/hqdefault.jpg">
 
     <div class="content">
@@ -1008,7 +1111,7 @@ html {
 </a>
 
 <!-- Untitled Goose Game -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3O76KO9iHdeq-jPiT-uS_5" target="_blank" class="card" data-title="Untitled Goose Game" data-rating="8" data-order="79">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3O76KO9iHdeq-jPiT-uS_5" target="_blank" class="card" data-title="Untitled Goose Game" data-rating="8" data-order="79" data-closed="2022-07-01">
     <img src="https://i.ytimg.com/vi/eZozzdA_Fjw/hqdefault.jpg">
 
     <div class="content">
@@ -1021,7 +1124,7 @@ html {
 </a>
 
 <!-- Resident Evil 5 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx03a3Nj6izAQOsDo2HMMrin" target="_blank" class="card" data-title="Resident Evil 5" data-rating="4" data-order="11">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx03a3Nj6izAQOsDo2HMMrin" target="_blank" class="card" data-title="Resident Evil 5" data-rating="4" data-order="11" data-closed="2025-12-22">
     <img src="https://i.ytimg.com/vi/si1BCGNPEzk/hqdefault.jpg">
 
     <div class="content">
@@ -1034,7 +1137,7 @@ html {
 </a>
 
 <!-- 39 Days to Mars -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2gKFWF6XhUkLPdyGz4k0gS" target="_blank" class="card" data-title="39 Days to Mars" data-rating="6" data-order="43">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2gKFWF6XhUkLPdyGz4k0gS" target="_blank" class="card" data-title="39 Days to Mars" data-rating="6" data-order="43" data-closed="2024-12-31">
     <img src="https://i.ytimg.com/vi/18edtm4qsBA/hqdefault.jpg">
     <div class="content">
         <div class="title">39 Days to Mars</div>
@@ -1046,7 +1149,7 @@ html {
 </a>
 
 <!-- Dying Light 2: Stay Human -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx14083RXXhkmFOjRtrhlYYN" target="_blank" class="card" data-title="Dying Light 2: Stay Human" data-rating="5" data-order="22">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx14083RXXhkmFOjRtrhlYYN" target="_blank" class="card" data-title="Dying Light 2: Stay Human" data-rating="5" data-order="22" data-closed="2025-06-30">
     <img src="https://i.ytimg.com/vi/xtfcHlakmHw/hqdefault.jpg">
 
     <div class="content">
@@ -1059,7 +1162,7 @@ html {
 </a>
 
 <!-- Mining Mechs -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1fPV9Lt7Bb8TlB8Sy9Sk3U" target="_blank" class="card" data-title="Mining Mechs" data-rating="8" data-order="29">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1fPV9Lt7Bb8TlB8Sy9Sk3U" target="_blank" class="card" data-title="Mining Mechs" data-rating="8" data-order="29" data-closed="2025-03-18">
     <img src="https://i.ytimg.com/vi/SM7Q-2Te8-4/hqdefault.jpg">
 
     <div class="content">
@@ -1072,7 +1175,7 @@ html {
 </a>
 
 <!-- Together: Moon Escape -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2UJZN1KB_moLNyD_QtRJFG" target="_blank" class="card" data-title="Together: Moon Escape" data-rating="4">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2UJZN1KB_moLNyD_QtRJFG" target="_blank" class="card" data-title="Together: Moon Escape" data-rating="4" data-closed="2026-06-18">
     <img src="https://i.ytimg.com/vi/VUULCmxv-9k/hqdefault.jpg">
 
     <div class="content">
@@ -1085,7 +1188,7 @@ html {
 </a>
 
 <!-- Hidden Deep -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1diGjK0pRR4xKUNyJ7GErV" target="_blank" class="card" data-title="Hidden Deep" data-rating="6" data-order="7">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1diGjK0pRR4xKUNyJ7GErV" target="_blank" class="card" data-title="Hidden Deep" data-rating="6" data-order="7" data-closed="2026-01-22">
     <img src="https://i.ytimg.com/vi/b42S40qtDA4/hqdefault.jpg">
 
     <div class="content">
@@ -1098,7 +1201,7 @@ html {
 </a>
 
 <!-- Replaced -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0h8AP-5Z8FHMAtIRWXsv8y" target="_blank" class="card" data-title="Replaced" data-rating="6">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0h8AP-5Z8FHMAtIRWXsv8y" target="_blank" class="card" data-title="Replaced" data-rating="6" data-closed="2026-05-08">
     <img src="https://i.ytimg.com/vi/Eg_Xm0HyNKI/hqdefault.jpg">
 
     <div class="content">
@@ -1108,7 +1211,7 @@ html {
 </a>
 
 <!-- The Final Station -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2f2WBlG0hU5Rs84QxQsGfq" target="_blank" class="card" data-title="The Final Station" data-rating="5" data-order="38">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2f2WBlG0hU5Rs84QxQsGfq" target="_blank" class="card" data-title="The Final Station" data-rating="5" data-order="38" data-closed="2026-03-27">
     <img src="https://i.ytimg.com/vi/oMfRyBgKvIo/hqdefault.jpg">
     <div class="content">
         <div class="title">The Final Station</div>
@@ -1117,7 +1220,7 @@ html {
 </a>
 
 <!-- Aperture Desk Job -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3rTXQcIo8KYsLNhqbT1lcJ" target="_blank" class="card" data-title="Aperture Desk Job" data-rating="6" data-order="61">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3rTXQcIo8KYsLNhqbT1lcJ" target="_blank" class="card" data-title="Aperture Desk Job" data-rating="6" data-order="61" data-closed="2023-11-29">
     <img src="https://i.ytimg.com/vi/BSEIrArceBM/hqdefault.jpg">
 
     <div class="content">
@@ -1127,7 +1230,7 @@ html {
 </a>
 
 <!-- Remnant 2 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2ykzdLxrvhZ-jk1Uq18Qdd" target="_blank" class="card" data-title="Remnant 2" data-rating="5" data-order="64">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2ykzdLxrvhZ-jk1Uq18Qdd" target="_blank" class="card" data-title="Remnant 2" data-rating="5" data-order="64" data-closed="2026-06-04">
     <img src="https://i.ytimg.com/vi/4tLlT2Lt2lc/hqdefault.jpg">
 
     <div class="content">
@@ -1141,7 +1244,7 @@ html {
 </a>
 
 <!-- Deathloop -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3jMwIWIsNn4e_sJcGd2Ftf" target="_blank" class="card" data-title="Deathloop" data-rating="8">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3jMwIWIsNn4e_sJcGd2Ftf" target="_blank" class="card" data-title="Deathloop" data-rating="8" data-closed="2024-09-09">
     <img src="https://i.ytimg.com/vi/rRjl__Xq5lU/hqdefault.jpg">
     <div class="content">
         <div class="title">Deathloop</div>
@@ -1150,7 +1253,7 @@ html {
 </a>
 
 <!-- Dispatch -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx20wqlcwT1KCD60JwY1PBZS" target="_blank" class="card" data-title="Dispatch" data-rating="8" data-order="52">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx20wqlcwT1KCD60JwY1PBZS" target="_blank" class="card" data-title="Dispatch" data-rating="8" data-order="52" data-closed="2026-04-16">
     <img src="https://i.ytimg.com/vi/ESiyyUZIUBU/hqdefault.jpg">
     <div class="content">
         <div class="title">Dispatch</div>
@@ -1159,7 +1262,7 @@ html {
 </a>
 
 <!-- A Little To The Left -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2ANuyxgcv1M269CGzhAP8_" target="_blank" class="card" data-title="A Little To The Left" data-rating="7" data-order="31">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2ANuyxgcv1M269CGzhAP8_" target="_blank" class="card" data-title="A Little To The Left" data-rating="7" data-order="31" data-closed="2025-03-17">
     <img src="10167/ALttL.jpg">
 
     <div class="content">
@@ -1172,7 +1275,7 @@ html {
 </a>
 
 <!-- My Friend Pedro -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0xxhf1lg3DzFmtj_UeKv1e" target="_blank" class="card" data-title="My Friend Pedro" data-rating="6" data-order="39">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0xxhf1lg3DzFmtj_UeKv1e" target="_blank" class="card" data-title="My Friend Pedro" data-rating="6" data-order="39" data-closed="2026-04-09">
     <img src="https://i.ytimg.com/vi/QUGXIofL058/hqdefault.jpg">
     <div class="content">
         <div class="title">My Friend Pedro</div>
@@ -1181,7 +1284,7 @@ html {
 </a>
 
 <!-- RICO -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2v1pXWkNlOpU24sOVByMU5" target="_blank" class="card" data-title="RICO" data-rating="5" data-order="28">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2v1pXWkNlOpU24sOVByMU5" target="_blank" class="card" data-title="RICO" data-rating="5" data-order="28" data-closed="2025-03-19">
     <img src="https://i.ytimg.com/vi/XNUY8_HKUdE/hqdefault.jpg">
 
     <div class="content">
@@ -1194,7 +1297,7 @@ html {
 </a>
 
 <!-- Griefhelm -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3N6-GcIVyQzkRJ9E4FkhrO" target="_blank" class="card" data-title="Griefhelm" data-rating="8" data-order="50">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3N6-GcIVyQzkRJ9E4FkhrO" target="_blank" class="card" data-title="Griefhelm" data-rating="8" data-order="50" data-closed="2024-10-30">
     <img src="https://i.ytimg.com/vi/QDYKYZkdDsI/hqdefault.jpg">
     <div class="content">
         <div class="title">Griefhelm</div>
@@ -1219,7 +1322,7 @@ html {
 </a>
 
 <!-- Cairn -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx06LP27wd66N61WIifx87pH" target="_blank" class="card" data-title="Cairn" data-rating="4" data-order="40">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx06LP27wd66N61WIifx87pH" target="_blank" class="card" data-title="Cairn" data-rating="4" data-order="40" data-closed="2026-04-08">
     <img src="https://i.ytimg.com/vi/RqVC0tm9N4Q/hqdefault.jpg">
     <div class="content">
         <div class="title">Cairn</div>
@@ -1228,7 +1331,7 @@ html {
 </a>
 
 <!-- Toilet Chronicles -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0AQiOGYY3SIHo3gBrwj6qZ" target="_blank" class="card" data-title="Toilet Chronicles" data-rating="7">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0AQiOGYY3SIHo3gBrwj6qZ" target="_blank" class="card" data-title="Toilet Chronicles" data-rating="7" data-closed="2026-04-17"> 
     <img src="https://i.ytimg.com/vi/KtFQcKN2sp4/hqdefault.jpg">
 
     <div class="content">
@@ -1238,7 +1341,7 @@ html {
 </a>
 
 <!-- Jusant -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1uj7D3_nz859DEy4w1EPPo" target="_blank" class="card" data-title="Jusant" data-rating="8" data-order="70">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1uj7D3_nz859DEy4w1EPPo" target="_blank" class="card" data-title="Jusant" data-rating="8" data-order="70" data-closed="2026-04-10">
     <img src="https://i.ytimg.com/vi/FtnucvOv4YU/hqdefault.jpg">
 
     <div class="content">
@@ -1248,7 +1351,7 @@ html {
 </a>
 
 <!-- Do Not Feed the Monkeys -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3W7cyqLnwsZG5MCnx6zIg-" target="_blank" class="card" data-title="Do Not Feed the Monkeys" data-rating="8" data-order="46">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3W7cyqLnwsZG5MCnx6zIg-" target="_blank" class="card" data-title="Do Not Feed the Monkeys" data-rating="8" data-order="46" data-closed="2024-12-31">
     <img src="https://i.ytimg.com/vi/UuvOw7UwLJQ/hqdefault.jpg">
     <div class="content">
         <div class="title">Do Not Feed the Monkeys</div>
@@ -1260,7 +1363,7 @@ html {
 </a>
 
 <!-- Deep Rock Galactic -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx111ZQUoCa7-Wg2pK-lPJxG" target="_blank" class="card" data-title="Deep Rock Galactic" data-rating="7" data-order="5">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx111ZQUoCa7-Wg2pK-lPJxG" target="_blank" class="card" data-title="Deep Rock Galactic" data-rating="7" data-order="5" data-closed="2026-03-04">
     <img src="https://i.ytimg.com/vi/UjKDNXvq8Oc/hqdefault.jpg">
 
     <div class="content">
@@ -1275,7 +1378,7 @@ html {
 </a>
 
 <!-- Chained Together -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2Q4atYWMZ9EL3DJ29rr44S" target="_blank" class="card" data-title="Chained Together" data-rating="7" data-order="51">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2Q4atYWMZ9EL3DJ29rr44S" target="_blank" class="card" data-title="Chained Together" data-rating="7" data-order="51" data-closed="2024-08-19">
     <img src="https://i.ytimg.com/vi/KIy_m-AvoQY/hqdefault.jpg">
     <div class="content">
         <div class="title">Chained Together</div>
@@ -1287,7 +1390,7 @@ html {
 </a>
 
 <!-- Only Up! -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2vg87JdKMAoohU5RQA6Mcb" target="_blank" class="card" data-title="Only Up!" data-rating="6" data-order="54">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2vg87JdKMAoohU5RQA6Mcb" target="_blank" class="card" data-title="Only Up!" data-rating="6" data-order="54" data-closed="2024-07-16">
     <img src="https://i.ytimg.com/vi/UiBvPgJCqpc/hqdefault.jpg">
 
     <div class="content">
@@ -1300,7 +1403,7 @@ html {
 </a>
 
 <!-- Only Up: With Friends -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx34iWiJS0mZ3GAQLKe8zQYv" target="_blank" class="card" data-title="Only Up: With Friends" data-rating="3" data-order="53">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx34iWiJS0mZ3GAQLKe8zQYv" target="_blank" class="card" data-title="Only Up: With Friends" data-rating="3" data-order="53" data-closed="2024-07-16">
     <img src="https://i.ytimg.com/vi/OHZ3-dnpszA/hqdefault.jpg">
 
     <div class="content">
@@ -1314,7 +1417,7 @@ html {
 </a>
 
 <!-- The Anacrusis -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2Yb-KB9wQDDczehSJs5BBT" target="_blank" class="card" data-title="The Anacrusis" data-rating="3" data-order="75">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2Yb-KB9wQDDczehSJs5BBT" target="_blank" class="card" data-title="The Anacrusis" data-rating="3" data-order="75" data-closed="2023-01-26">
     <img src="https://i.ytimg.com/vi/UZtYz5jM7uw/hqdefault.jpg">
 
     <div class="content">
@@ -1328,7 +1431,7 @@ html {
 </a>
 
 <!-- Pico Park -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3w5YthTmMBNe7sEOp-h1tw" target="_blank" class="card" data-title="Pico Park" data-rating="8" data-order="62">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3w5YthTmMBNe7sEOp-h1tw" target="_blank" class="card" data-title="Pico Park" data-rating="8" data-order="62" data-closed="2023-11-11">
     <img src="https://i.ytimg.com/vi/qgEoDSXnso4/hqdefault.jpg">
 
     <div class="content">
@@ -1341,7 +1444,7 @@ html {
 </a>
 
 <!-- Deadlight -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0IlDdGho_E6DPi7_to1PNk" target="_blank" class="card" data-title="Deadlight" data-rating="4" data-order="44">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0IlDdGho_E6DPi7_to1PNk" target="_blank" class="card" data-title="Deadlight" data-rating="4" data-order="44" data-closed="2024-12-31">
     <img src="https://i.ytimg.com/vi/RHJZbi8C2fE/hqdefault.jpg">
     <div class="content">
         <div class="title">Deadlight</div>
@@ -1369,7 +1472,7 @@ html {
 </a>
 
 <!-- The Past Within -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3yaw9CMUkE5vr47sQsOfjk" target="_blank" class="card" data-title="The Past Within" data-rating="8" data-order="78">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3yaw9CMUkE5vr47sQsOfjk" target="_blank" class="card" data-title="The Past Within" data-rating="8" data-order="78" data-closed="2022-11-16">
     <img src="https://i.ytimg.com/vi/nPfMWoKxVjc/hqdefault.jpg">
 
     <div class="content">
@@ -1382,7 +1485,7 @@ html {
 </a>
 
 <!-- Dying Light -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2YoqNo8EcXAP_QDk4AxNbN" target="_blank" class="card" data-title="Dying Light" data-rating="8" data-order="85">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2YoqNo8EcXAP_QDk4AxNbN" target="_blank" class="card" data-title="Dying Light" data-rating="8" data-order="85" data-closed="2024-03-19">
     <img src="https://i.ytimg.com/vi/BMs3Ev52_qo/hqdefault.jpg">
 
     <div class="content">
@@ -1396,7 +1499,7 @@ html {
 </a>
 
 <!-- Portal: Co-op -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1pZVUTE5pTJqfpm699YuYp" target="_blank" class="card" data-title="Portal: Co-op" data-rating="9" data-order="139">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1pZVUTE5pTJqfpm699YuYp" target="_blank" class="card" data-title="Portal: Co-op" data-rating="9" data-order="139" data-closed="2018-06-13">
     <img src="https://i.ytimg.com/vi/_KTKCKLeoM0/hqdefault.jpg">
 
     <div class="content">
@@ -1409,7 +1512,7 @@ html {
 </a>
 
 <!-- Arizona Sunshine -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2L6iyzErYMEizSoath1yk-" target="_blank" class="card" data-title="Arizona Sunshine" data-rating="6" data-order="88">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2L6iyzErYMEizSoath1yk-" target="_blank" class="card" data-title="Arizona Sunshine" data-rating="6" data-order="88" data-closed="2021-08-13">
     <img src="https://i.ytimg.com/vi/0rjg2cKZNTM/hqdefault.jpg">
 
     <div class="content">
@@ -1422,7 +1525,7 @@ html {
 </a>
 
 <!-- Tom Clancy’s Splinter Cell: Blacklist -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3n0hb70m6o-45uw9P4WVXd" target="_blank" class="card" data-title="Tom Clancy’s Splinter Cell: Blacklist" data-rating="9" data-order="180">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3n0hb70m6o-45uw9P4WVXd" target="_blank" class="card" data-title="Tom Clancy’s Splinter Cell: Blacklist" data-rating="9" data-order="180" data-closed="2021-11-14">
     <img src="https://i.ytimg.com/vi/6j5rq3eS-ns/hqdefault.jpg">
 
     <div class="content">
@@ -1436,7 +1539,7 @@ html {
 </a>
 
 <!-- Call of Duty: Advanced Warfare -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1KSNb88N92ES8whaLS9rCR" target="_blank" class="card" data-title="Call of Duty: Advanced Warfare" data-rating="7" data-order="113">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1KSNb88N92ES8whaLS9rCR" target="_blank" class="card" data-title="Call of Duty: Advanced Warfare" data-rating="7" data-order="113" data-closed="2020-05-07">
     <img src="https://i.ytimg.com/vi/bO5cYSZNf4M/hqdefault.jpg">
 
     <div class="content">
@@ -1446,7 +1549,7 @@ html {
 </a>
 
 <!-- Half-Life 2 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2cAf9hL830WaVmdk3uDs1W" target="_blank" class="card" data-title="Half-Life 2" data-rating="10" data-order="110">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2cAf9hL830WaVmdk3uDs1W" target="_blank" class="card" data-title="Half-Life 2" data-rating="10" data-order="110" data-closed="2020-06-03">
     <img src="https://i.ytimg.com/vi/NpVeTssPUbA/hqdefault.jpg">
 
     <div class="content">
@@ -1460,7 +1563,7 @@ html {
 </a>
 
 <!-- Remnant: From the Ashes -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx31vBH_5MSxmuDJ0eV0XBTI" target="_blank" class="card" data-title="Remnant: From the Ashes" data-rating="6" data-order="91">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx31vBH_5MSxmuDJ0eV0XBTI" target="_blank" class="card" data-title="Remnant: From the Ashes" data-rating="6" data-order="91" data-closed="2022-03-19">
     <img src="https://i.ytimg.com/vi/gVBSmryB6e0/hqdefault.jpg">
 
     <div class="content">
@@ -1488,7 +1591,7 @@ html {
 </a>
 
 <!-- Mirror’s Edge -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0Bfjd8byPaLbnfBCvZcGqB" target="_blank" class="card" data-title="Mirror’s Edge" data-rating="9" data-order="118">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0Bfjd8byPaLbnfBCvZcGqB" target="_blank" class="card" data-title="Mirror’s Edge" data-rating="9" data-order="118" data-closed="2019-06-03">
     <img src="https://i.ytimg.com/vi/giQ6-W66IUc/hqdefault.jpg">
 
     <div class="content">
@@ -1501,7 +1604,7 @@ html {
 </a>
 
 <!-- Thunder Tier One -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx16YlgmkIVtALUfs7kkLRuC" target="_blank" class="card" data-title="Thunder Tier One" data-rating="5" data-order="86">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx16YlgmkIVtALUfs7kkLRuC" target="_blank" class="card" data-title="Thunder Tier One" data-rating="5" data-order="86" data-closed="2021-12-26">
     <img src="https://i.ytimg.com/vi/qAGxw6pYlNw/hqdefault.jpg">
 
     <div class="content">
@@ -1515,7 +1618,7 @@ html {
 </a>
 
 <!-- Mirror’s Edge: Catalyst -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx35Cp3YDh0V30jnrh1AlnVs" target="_blank" class="card" data-title="Mirror’s Edge: Catalyst" data-rating="3" data-order="97">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx35Cp3YDh0V30jnrh1AlnVs" target="_blank" class="card" data-title="Mirror’s Edge: Catalyst" data-rating="3" data-order="97" data-closed="2021-02-02">
     <img src="https://i.ytimg.com/vi/NdhSc3WVJ-s/hqdefault.jpg">
 
     <div class="content">
@@ -1528,7 +1631,7 @@ html {
 </a>
 
 <!-- Tales from the Borderlands -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3dePJWf68rm8hGRc9Xn-fN" target="_blank" class="card" data-title="Tales from the Borderlands" data-rating="10" data-order="168"> 
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3dePJWf68rm8hGRc9Xn-fN" target="_blank" class="card" data-title="Tales from the Borderlands" data-rating="10" data-order="168" data-closed="2022-03-24"> 
     <img src="https://i.ytimg.com/vi/2Mzcd4QBOvs/hqdefault.jpg">
 
     <div class="content">
@@ -1541,7 +1644,7 @@ html {
 </a>
 
 <!-- Watch Dogs -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1JkGDFTvv2WJyJSJFOeULE" target="_blank" class="card" data-title="Watch Dogs" data-rating="5" data-order="57">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1JkGDFTvv2WJyJSJFOeULE" target="_blank" class="card" data-title="Watch Dogs" data-rating="5" data-order="57" data-closed="2024-06-02">
     <img src="https://i.ytimg.com/vi/bWbLDuV68Mw/hqdefault.jpg">
 
     <div class="content">
@@ -1554,7 +1657,7 @@ html {
 </a>
 
 <!-- Battlefield 3 (Multiplayer) -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx03tei24WdALq-C2Pk8Qre8" target="_blank" class="card" data-title="Battlefield 3 (Multiplayer)" data-rating="8" data-order="169">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx03tei24WdALq-C2Pk8Qre8" target="_blank" class="card" data-title="Battlefield 3 (Multiplayer)" data-rating="8" data-order="169" data-closed="2025-01-01">
     <img src="https://i.ytimg.com/vi/1x8IlnQpNJQ/hqdefault.jpg">
 
     <div class="content">
@@ -1569,7 +1672,7 @@ html {
 </a>
 
 <!-- A Way Out -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx299wktZ_xAa2YLrQWgMRRS" target="_blank" class="card" data-title="A Way Out" data-rating="7" data-order="135">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx299wktZ_xAa2YLrQWgMRRS" target="_blank" class="card" data-title="A Way Out" data-rating="7" data-order="135" data-closed="2018-08-29">
     <img src="https://i.ytimg.com/vi/pV5cCFb6kLw/hqdefault.jpg">
 
     <div class="content">
@@ -1595,7 +1698,7 @@ html {
 </a>
 
 <!-- Sniper Elite 5 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3mSpqrdUPmZHSvsUvCd0ql" target="_blank" class="card" data-title="Sniper Elite 5" data-rating="6" data-order="32">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3mSpqrdUPmZHSvsUvCd0ql" target="_blank" class="card" data-title="Sniper Elite 5" data-rating="6" data-order="32" data-closed="2025-02-04">
     <img src="https://i.ytimg.com/vi/_FzoEzsoq-w/hqdefault.jpg">
 
     <div class="content">
@@ -1608,7 +1711,7 @@ html {
 </a>
 
 <!-- Sons of the Forest -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0Ms1dBDKqh8CFSrZyN2_kj" target="_blank" class="card" data-title="Sons of the Forest" data-rating="5" data-order="33">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0Ms1dBDKqh8CFSrZyN2_kj" target="_blank" class="card" data-title="Sons of the Forest" data-rating="5" data-order="33" data-closed="2025-01-27">
     <img src="https://i.ytimg.com/vi/sLvG0AOhGv8/hqdefault.jpg">
 
     <div class="content">
@@ -1622,7 +1725,7 @@ html {
 </a>
 
 <!-- Dead Island: Riptide -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3Cf2Zsw8mY5mWJfd8QBqkW" target="_blank" class="card" data-title="Dead Island: Riptide" data-rating="7" data-order="95">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3Cf2Zsw8mY5mWJfd8QBqkW" target="_blank" class="card" data-title="Dead Island: Riptide" data-rating="7" data-order="95" data-closed="2023-10-14">
     <img src="https://i.ytimg.com/vi/jogjNvvapHE/hqdefault.jpg">
 
     <div class="content">
@@ -1636,7 +1739,7 @@ html {
 </a>
 
 <!-- Police Stories -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx18E9erUXEIX23djRZaknx2" target="_blank" class="card" data-title="Police Stories" data-rating="9" data-order="111">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx18E9erUXEIX23djRZaknx2" target="_blank" class="card" data-title="Police Stories" data-rating="9" data-order="111" data-closed="2019-12-27">
     <img src="https://i.ytimg.com/vi/2GrjEuV9nqg/hqdefault.jpg">
 
     <div class="content">
@@ -1649,7 +1752,7 @@ html {
 </a>
 
 <!-- The Forest -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3c2phOkR9pNKtCrfOCCFj6" target="_blank" class="card" data-title="The Forest" data-rating="7" data-order="184">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3c2phOkR9pNKtCrfOCCFj6" target="_blank" class="card" data-title="The Forest" data-rating="7" data-order="184" data-closed="2021-02-04">
     <img src="https://i.ytimg.com/vi/XgP1tn9ymQA/hqdefault.jpg">
 
     <div class="content">
@@ -1662,7 +1765,7 @@ html {
 </a>
 
 <!-- Battlefield Hardline [Multiplayer] -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1t-NQK6CflkAuatau_mKhY" target="_blank" class="card" data-title="Battlefield Hardline [Multiplayer]" data-rating="6" data-order="58">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1t-NQK6CflkAuatau_mKhY" target="_blank" class="card" data-title="Battlefield Hardline [Multiplayer]" data-rating="6" data-order="58" data-closed="2024-02-19">
     <img src="https://i.ytimg.com/vi/xjXgsAWPPiI/hqdefault.jpg">
 
     <div class="content">
@@ -1675,7 +1778,7 @@ html {
 </a>
 
 <!-- Sniper Elite 4 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3PknzZh7VoZXENnFeSbIVU" target="_blank" class="card" data-title="Sniper Elite 4" data-rating="7" data-order="133">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3PknzZh7VoZXENnFeSbIVU" target="_blank" class="card" data-title="Sniper Elite 4" data-rating="7" data-order="133" data-closed="2018-10-01">
     <img src="https://i.ytimg.com/vi/nOjJy5oLwtY/hqdefault.jpg">
 
     <div class="content">
@@ -1688,7 +1791,7 @@ html {
 </a>
 
 <!-- Back to Bed -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0pi1_2hpZWoRLkW12yKrsM" target="_blank" class="card" data-title="Back to Bed" data-rating="6">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0pi1_2hpZWoRLkW12yKrsM" target="_blank" class="card" data-title="Back to Bed" data-rating="6" data-closed="2026-06-19">
     <img src="https://i.ytimg.com/vi/xyyzWFm5wnM/hqdefault.jpg">
 
     <div class="content">
@@ -1698,7 +1801,7 @@ html {
 </a>
 
 <!-- Twelve Minutes -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0BRkrCfj0msVLPGKFdzsCj" target="_blank" class="card" data-title="Twelve Minutes" data-rating="9" data-order="87">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0BRkrCfj0msVLPGKFdzsCj" target="_blank" class="card" data-title="Twelve Minutes" data-rating="9" data-order="87" data-closed="2021-11-17">
     <img src="https://i.ytimg.com/vi/KZEnm2VreGA/hqdefault.jpg">
 
     <div class="content">
@@ -1708,7 +1811,7 @@ html {
 </a>
 
 <!-- Valheim -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2GDCAz_PI4vShrR18ZuVrw" target="_blank" class="card" data-title="Valheim" data-rating="8" data-order="13">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2GDCAz_PI4vShrR18ZuVrw" target="_blank" class="card" data-title="Valheim" data-rating="8" data-order="13" data-closed="2025-11-28">
     <img src="https://i.ytimg.com/vi/_-DN68_yVGI/hqdefault.jpg">
 
     <div class="content">
@@ -1722,7 +1825,7 @@ html {
 </a>
 
 <!-- Metro: Last Light -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1uWPO1vgLph6bxcow_Hnb3" target="_blank" class="card" data-title="Metro: Last Light" data-rating="5" data-order="89">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1uWPO1vgLph6bxcow_Hnb3" target="_blank" class="card" data-title="Metro: Last Light" data-rating="5" data-order="89" data-closed="2021-10-20">
     <img src="https://i.ytimg.com/vi/wyIY2lvO290/hqdefault.jpg">
 
     <div class="content">
@@ -1735,7 +1838,7 @@ html {
 </a>
 
 <!-- State of Decay 2 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2MDLkANTvjayXX6eifp_vh" target="_blank" class="card" data-title="State of Decay 2" data-rating="6" data-order="49">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2MDLkANTvjayXX6eifp_vh" target="_blank" class="card" data-title="State of Decay 2" data-rating="6" data-order="49" data-closed="2024-10-31">
     <img src="https://i.ytimg.com/vi/98_MvniCPsc/hqdefault.jpg">
     <div class="content">
         <div class="title">State of Decay 2</div>
@@ -1747,7 +1850,7 @@ html {
 </a>
 
 <!-- Metro 2033 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1LwgaZ-mo4UCQ6hjCtFapQ" target="_blank" class="card" data-title="Metro 2033" data-rating="7" data-order="98">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1LwgaZ-mo4UCQ6hjCtFapQ" target="_blank" class="card" data-title="Metro 2033" data-rating="7" data-order="98" data-closed="2021-07-21">
     <img src="https://i.ytimg.com/vi/RUYp4vmcLfw/hqdefault.jpg">
 
     <div class="content">
@@ -1783,7 +1886,7 @@ html {
 </a>
 
 <!-- Battlefield 4 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0bQjVXgpR-wEfoXeo6jpWv" target="_blank" class="card" data-title="Battlefield 4" data-rating="5" data-order="122">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0bQjVXgpR-wEfoXeo6jpWv" target="_blank" class="card" data-title="Battlefield 4" data-rating="5" data-order="122" data-closed="2019-04-16">
     <img src="https://i.ytimg.com/vi/pyq19g2HnyE/hqdefault.jpg">
 
     <div class="content">
@@ -1796,7 +1899,7 @@ html {
 </a>
 
 <!-- Battlefield 1: Multiplayer -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1vS6-MsiqucpfU8m6-IYj0" target="_blank" class="card" data-title="Battlefield 1: Multiplayer" data-rating="5" data-order="130">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1vS6-MsiqucpfU8m6-IYj0" target="_blank" class="card" data-title="Battlefield 1: Multiplayer" data-rating="5" data-order="130" data-closed="2018-10-02">
     <img src="https://i.ytimg.com/vi/cN4v6_7231k/hqdefault.jpg">
 
     <div class="content">
@@ -1809,7 +1912,7 @@ html {
 </a>
 
 <!-- Battlefield 1 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0OEIsEP9FdIVQVg2ds527H" target="_blank" class="card" data-title="Battlefield 1" data-rating="9" data-order="164">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0OEIsEP9FdIVQVg2ds527H" target="_blank" class="card" data-title="Battlefield 1" data-rating="9" data-order="164" data-closed="2018-09-20">
     <img src="https://i.ytimg.com/vi/TBSdEsHk4g0/hqdefault.jpg">
 
     <div class="content">
@@ -1819,7 +1922,7 @@ html {
 </a>
 
 <!-- Battlefield 3 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0YGxyTMmYvs0g4ypNB6BOb" target="_blank" class="card" data-title="Battlefield 3" data-rating="9" data-order="144">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0YGxyTMmYvs0g4ypNB6BOb" target="_blank" class="card" data-title="Battlefield 3" data-rating="9" data-order="144" data-closed="2018-07-18">
     <img src="https://i.ytimg.com/vi/r9-Q5ri8nio/hqdefault.jpg">
 
     <div class="content">
@@ -1829,7 +1932,7 @@ html {
 </a>
 
 <!-- Hotline Miami 2: Wrong Number -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0lcAEvzqo3cCxhbqyQ4TT5" target="_blank" class="card" data-title="Hotline Miami 2: Wrong Number" data-rating="6" data-order="99">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0lcAEvzqo3cCxhbqyQ4TT5" target="_blank" class="card" data-title="Hotline Miami 2: Wrong Number" data-rating="6" data-order="99" data-closed="2020-06-20">
     <img src="https://i.ytimg.com/vi/NNxP2gP_m2s/hqdefault.jpg">
 
     <div class="content">
@@ -1842,7 +1945,7 @@ html {
 </a>
 
 <!-- Battlefield: Bad Company 2: Multiplayer -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1Pl3Xcq6RsUESexoVEqRPe" target="_blank" class="card" data-title="Battlefield: Bad Company 2: Multiplayer" data-rating="7" data-order="147">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1Pl3Xcq6RsUESexoVEqRPe" target="_blank" class="card" data-title="Battlefield: Bad Company 2: Multiplayer" data-rating="7" data-order="147" data-closed="2018-06-18">
     <img src="https://i.ytimg.com/vi/KHXzavH5O9E/hqdefault.jpg">
 
     <div class="content">
@@ -1855,7 +1958,7 @@ html {
 </a>
 
 <!-- Hotline Miami -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1vpsWM-Jk0j0eohVGbP4i8" target="_blank" class="card" data-title="Hotline Miami" data-rating="9" data-order="105">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1vpsWM-Jk0j0eohVGbP4i8" target="_blank" class="card" data-title="Hotline Miami" data-rating="9" data-order="105" data-closed="2020-04-30">
     <img src="https://i.ytimg.com/vi/EmFVQWwCbfM/hqdefault.jpg">
 
     <div class="content">
@@ -1868,7 +1971,7 @@ html {
 </a>
 
 <!-- Battlefield: Bad Company 2 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3hm_YR66YuQ7nB9yz5db4Y" target="_blank" class="card" data-title="Battlefield: Bad Company 2" data-rating="4" data-order="150">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3hm_YR66YuQ7nB9yz5db4Y" target="_blank" class="card" data-title="Battlefield: Bad Company 2" data-rating="4" data-order="150" data-closed="2017-11-01"> 
     <img src="https://i.ytimg.com/vi/uO6If2AEYwc/hqdefault.jpg">
 
     <div class="content">
@@ -1878,7 +1981,7 @@ html {
 </a>
 
 <!-- Dead Island -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3IlrqxNrauH4ZHUkXNouQj" target="_blank" class="card" data-title="Dead Island" data-rating="7" data-order="141">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3IlrqxNrauH4ZHUkXNouQj" target="_blank" class="card" data-title="Dead Island" data-rating="7" data-order="141" data-closed="2018-07-11">
     <img src="https://i.ytimg.com/vi/9DC85DNO9yM/hqdefault.jpg">
 
     <div class="content">
@@ -1892,7 +1995,7 @@ html {
 </a>
 
 <!-- Portal: Prelude -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0rMuTWGR27E4WP-FDd1Wg-" target="_blank" class="card" data-title="Portal: Prelude" data-rating="6" data-order="151">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0rMuTWGR27E4WP-FDd1Wg-" target="_blank" class="card" data-title="Portal: Prelude" data-rating="6" data-order="151" data-closed="2017-11-30">
     <img src="https://i.ytimg.com/vi/pZit-fq5nSk/hqdefault.jpg">
 
     <div class="content">
@@ -1902,7 +2005,7 @@ html {
 </a>
 
 <!-- Dead Island: Ryder White DLC -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2zR8wZqaj13ceuf8Zsekfc" target="_blank" class="card" data-title="Dead Island: Ryder White DLC" data-rating="6" data-order="137">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2zR8wZqaj13ceuf8Zsekfc" target="_blank" class="card" data-title="Dead Island: Ryder White DLC" data-rating="6" data-order="137" data-closed="2018-08-20">
     <img src="https://i.ytimg.com/vi/eRUpF-rx4vY/hqdefault.jpg">
 
     <div class="content">
@@ -1915,7 +2018,7 @@ html {
 </a>
 
 <!-- For Honor -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx38UnLyZ8XEEvXji1pMlecl" target="_blank" class="card" data-title="For Honor" data-rating="5" data-order="96">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx38UnLyZ8XEEvXji1pMlecl" target="_blank" class="card" data-title="For Honor" data-rating="5" data-order="96" data-closed="2021-03-10">
     <img src="https://i.ytimg.com/vi/29vEIPdAINg/hqdefault.jpg">
 
     <div class="content">
@@ -1928,7 +2031,7 @@ html {
 </a>
 
 <!-- Generation Zero -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1KoWzn6LcmqJuU4TSLPaMW" target="_blank" class="card" data-title="Generation Zero" data-rating="5" data-order="112">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1KoWzn6LcmqJuU4TSLPaMW" target="_blank" class="card" data-title="Generation Zero" data-rating="5" data-order="112" data-closed="2026-05-22">
     <img src="https://i.ytimg.com/vi/lDlPFQ8eax0/hqdefault.jpg">
 
     <div class="content">
@@ -1951,7 +2054,7 @@ html {
 </a>
 
 <!-- Assassin’s Creed Chronicles: Russia -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx08Mjmg57nbCA19SNcnvPD5" target="_blank" class="card" data-title="Assassin’s Creed Chronicles: Russia" data-rating="6" data-order="17">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx08Mjmg57nbCA19SNcnvPD5" target="_blank" class="card" data-title="Assassin’s Creed Chronicles: Russia" data-rating="6" data-order="17" data-closed="2025-08-16">
     <img src="https://i.ytimg.com/vi/a2VMeJy-55E/hqdefault.jpg">
 
     <div class="content">
@@ -1964,7 +2067,7 @@ html {
 </a>
 
 <!-- Assassin's Creed Chronicles: India -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0_3wSbX6K0wX2Liv_7mQd4" target="_blank" class="card" data-title="Assassin's Creed Chronicles: India" data-rating="4" data-order="42">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0_3wSbX6K0wX2Liv_7mQd4" target="_blank" class="card" data-title="Assassin's Creed Chronicles: India" data-rating="4" data-order="42" data-closed="2025-01-03">
     <img src="https://i.ytimg.com/vi/EFyNFJsYgfk/hqdefault.jpg">
     <div class="content">
         <div class="title">Assassin's Creed Chronicles: India</div>
@@ -1976,7 +2079,7 @@ html {
 </a>
 
 <!-- Assassin's Creed: Chronicles: China -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3DPeEke7OyOVQ0ooFtG-Rt" target="_blank" class="card" data-title="Assassin's Creed: Chronicles: China" data-rating="4" data-order="60">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3DPeEke7OyOVQ0ooFtG-Rt" target="_blank" class="card" data-title="Assassin's Creed: Chronicles: China" data-rating="4" data-order="60" data-closed="2023-12-02">
     <img src="https://i.ytimg.com/vi/sc7Lzcipq1I/hqdefault.jpg">
 
     <div class="content">
@@ -1989,7 +2092,7 @@ html {
 </a>
 
 <!-- Dread Not -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0hme6lRAtxY0sWPfB7dS8P" target="_blank" class="card" data-title="Dread Not" data-rating="4" data-order="14">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0hme6lRAtxY0sWPfB7dS8P" target="_blank" class="card" data-title="Dread Not" data-rating="4" data-order="14" data-closed="2025-11-21">
     <img src="https://i.ytimg.com/vi/4K4hjyF7-5U/hqdefault.jpg">
 
     <div class="content">
@@ -2002,7 +2105,7 @@ html {
 </a>
 
 <!-- We Become What We Behold -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1FWbStpYdVJLJl6qAkbgEu" target="_blank" class="card" data-title="We Become What We Behold" data-rating="6" data-order="2">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1FWbStpYdVJLJl6qAkbgEu" target="_blank" class="card" data-title="We Become What We Behold" data-rating="6" data-order="2" data-closed="2026-03-14">
     <img src="https://i.ytimg.com/vi/WD8BAdAsD2o/hqdefault.jpg">
 
     <div class="content">
@@ -2040,7 +2143,7 @@ html {
 </a>
 
 <!-- How to Survive -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx33HHpWtthvoZjXoGuR9sbx" target="_blank" class="card" data-title="How to Survive" data-rating="9" data-order="120">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx33HHpWtthvoZjXoGuR9sbx" target="_blank" class="card" data-title="How to Survive" data-rating="9" data-order="120" data-closed="2020-02-04">
     <img src="https://i.ytimg.com/vi/rXkJXXYHxT4/hqdefault.jpg">
 
     <div class="content">
@@ -2063,7 +2166,7 @@ html {
 </a>
 
 <!-- Apex Legends -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3jENlrtQbNk-LENusuQLUx" target="_blank" class="card" data-title="Apex Legends" data-rating="4" data-order="84">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3jENlrtQbNk-LENusuQLUx" target="_blank" class="card" data-title="Apex Legends" data-rating="4" data-order="84" data-closed="2022-07-18">
     <img src="https://i.ytimg.com/vi/S0St6-J-7NQ/hqdefault.jpg">
 
     <div class="content">
@@ -2088,7 +2191,7 @@ html {
 </a>
 
 <!-- S.T.A.L.K.E.R.: Shadow of Chernobyl -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3zFkPdlmYvATxit9bcKn4W" target="_blank" class="card" data-title="S.T.A.L.K.E.R.: Shadow of Chernobyl" data-rating="5" data-order="101">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3zFkPdlmYvATxit9bcKn4W" target="_blank" class="card" data-title="S.T.A.L.K.E.R.: Shadow of Chernobyl" data-rating="5" data-order="101" data-closed="2020-05-16">
     <img src="https://i.ytimg.com/vi/iYfRfDy6XEc/hqdefault.jpg">
 
     <div class="content">
@@ -2114,7 +2217,7 @@ html {
 </a>
 
 <!-- Калибр -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3XrIxUT6aAoHqgn99kBZ4L" target="_blank" class="card" data-title="Калибр" data-rating="3" data-order="107">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3XrIxUT6aAoHqgn99kBZ4L" target="_blank" class="card" data-title="Калибр" data-rating="3" data-order="107" data-closed="2020-03-10">
     <img src="https://i.ytimg.com/vi/-Ih_icXATN0/hqdefault.jpg">
 
     <div class="content">
@@ -2127,7 +2230,7 @@ html {
 </a>
 
 <!-- PlayerUnknown’s Battlegrounds -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3eYxf5odY7SUhn-TC0-Pe-" target="_blank" class="card" data-title="PlayerUnknown’s Battlegrounds" data-rating="5" data-order="104">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3eYxf5odY7SUhn-TC0-Pe-" target="_blank" class="card" data-title="PlayerUnknown’s Battlegrounds" data-rating="5" data-order="104" data-closed="2021-06-20">
     <img src="https://i.ytimg.com/vi/mSkH0yItFos/hqdefault.jpg">
 
     <div class="content">
@@ -2155,7 +2258,7 @@ html {
 </a>
 
 <!-- Zombie Army 4: Dead War -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3EaDhaV45BhtmZHrIYHaOk" target="_blank" class="card" data-title="Zombie Army 4: Dead War" data-rating="4" data-order="45">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3EaDhaV45BhtmZHrIYHaOk" target="_blank" class="card" data-title="Zombie Army 4: Dead War" data-rating="4" data-order="45" data-closed="2025-01-18">
     <img src="https://i.ytimg.com/vi/wGWhRMI3t7Q/hqdefault.jpg">
     <div class="content">
         <div class="title">Zombie Army 4: Dead War</div>
@@ -2180,7 +2283,7 @@ html {
 </a>
 
 <!-- RAID: World War II -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0jwq_pv0JL04b1M2R-d_xk" target="_blank" class="card" data-title="RAID: World War II" data-rating="6" data-order="142">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0jwq_pv0JL04b1M2R-d_xk" target="_blank" class="card" data-title="RAID: World War II" data-rating="6" data-order="142" data-closed="2018-11-27">
     <img src="https://i.ytimg.com/vi/wSKUW5hLixw/hqdefault.jpg">
 
     <div class="content">
@@ -2193,7 +2296,7 @@ html {
 </a>
 
 <!-- Half-Life: Decay -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3UDhiBM1loKu9hvseXZ2FI" target="_blank" class="card" data-title="Half-Life: Decay" data-rating="9" data-order="116">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3UDhiBM1loKu9hvseXZ2FI" target="_blank" class="card" data-title="Half-Life: Decay" data-rating="9" data-order="116" data-closed="2019-06-16">
     <img src="https://i.ytimg.com/vi/SRYob8vYiwg/hqdefault.jpg">
 
     <div class="content">
@@ -2206,7 +2309,7 @@ html {
 </a>
 
 <!-- Half-Life: Opposing Force -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3I5cvXCYMV35R2oIRUGqGX" target="_blank" class="card" data-title="Half-Life: Opposing Force" data-rating="8" data-order="59">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3I5cvXCYMV35R2oIRUGqGX" target="_blank" class="card" data-title="Half-Life: Opposing Force" data-rating="8" data-order="59" data-closed="2023-12-16">
     <img src="https://i.ytimg.com/vi/rR71gPLgGMY/hqdefault.jpg">
 
     <div class="content">
@@ -2219,7 +2322,7 @@ html {
 </a>
 
 <!-- Half-Life: Blue Shift -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1geKSh5XKoqg8bFg-K5yym" target="_blank" class="card" data-title="Half-Life: Blue Shift" data-rating="7" data-order="124">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1geKSh5XKoqg8bFg-K5yym" target="_blank" class="card" data-title="Half-Life: Blue Shift" data-rating="7" data-order="124" data-closed="2018-12-17">
     <img src="https://i.ytimg.com/vi/isLhRlEK3oc/hqdefault.jpg">
 
     <div class="content">
@@ -2232,7 +2335,7 @@ html {
 </a>
 
 <!-- Half-Life -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0oJI8HrWrlfvlEwMB15lM4" target="_blank" class="card" data-title="Half-Life" data-rating="10" data-order="128">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0oJI8HrWrlfvlEwMB15lM4" target="_blank" class="card" data-title="Half-Life" data-rating="10" data-order="128" data-closed="2018-11-30">
     <img src="https://i.ytimg.com/vi/JxFA18VEk9k/hqdefault.jpg">
 
     <div class="content">
@@ -2245,7 +2348,7 @@ html {
 </a>
 
 <!-- Astroneer -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx28agdxj83PhrwOiquNfjIZ" target="_blank" class="card" data-title="Astroneer" data-rating="8" data-order="134">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx28agdxj83PhrwOiquNfjIZ" target="_blank" class="card" data-title="Astroneer" data-rating="8" data-order="134" data-closed="2018-12-10">
     <img src="https://i.ytimg.com/vi/DP1E824rDKE/hqdefault.jpg">
 
     <div class="content">
@@ -2259,7 +2362,7 @@ html {
 </a>
 
 <!-- Portal 2 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1S439bq4eWl8MtEub0TWdg" target="_blank" class="card" data-title="Portal 2" data-rating="10" data-order="157">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1S439bq4eWl8MtEub0TWdg" target="_blank" class="card" data-title="Portal 2" data-rating="10" data-order="157" data-closed="2017-07-14">
     <img src="https://i.ytimg.com/vi/KEKc3y20kdw/hqdefault.jpg">
 
     <div class="content">
@@ -2272,7 +2375,7 @@ html {
 </a>
 
 <!-- Portal -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0qWU_1mijldgD7E9SXPtnb" target="_blank" class="card" data-title="Portal" data-rating="7" data-order="158">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0qWU_1mijldgD7E9SXPtnb" target="_blank" class="card" data-title="Portal" data-rating="7" data-order="158" data-closed="2017-06-20">
     <img src="https://i.ytimg.com/vi/toSJeAVmUqs/hqdefault.jpg">
 
     <div class="content">
@@ -2285,7 +2388,7 @@ html {
 </a>
 
 <!-- Sniper Elite 3 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0aubBZ1qcnJlCDcOHkGlrr" target="_blank" class="card" data-title="Sniper Elite 3" data-rating="7" data-order="138">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0aubBZ1qcnJlCDcOHkGlrr" target="_blank" class="card" data-title="Sniper Elite 3" data-rating="7" data-order="138" data-closed="2018-08-08">
     <img src="https://i.ytimg.com/vi/2YTnHj6J4T8/hqdefault.jpg">
 
     <div class="content">
@@ -2298,7 +2401,7 @@ html {
 </a>
 
 <!-- Sniper Elite V2 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1Ilrq55hHk89fqfRSUpiZW" target="_blank" class="card" data-title="Sniper Elite V2" data-rating="7" data-order="148">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1Ilrq55hHk89fqfRSUpiZW" target="_blank" class="card" data-title="Sniper Elite V2" data-rating="7" data-order="148" data-closed="2018-02-02">
     <img src="https://i.ytimg.com/vi/Sb-n3q9SshA/hqdefault.jpg">
 
     <div class="content">
@@ -2311,7 +2414,7 @@ html {
 </a>
 
 <!-- Left 4 Dead 2 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2dYz7b7ybThUmlbbp_HxkE" target="_blank" class="card" data-title="Left 4 Dead 2" data-rating="6" data-order="114">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2dYz7b7ybThUmlbbp_HxkE" target="_blank" class="card" data-title="Left 4 Dead 2" data-rating="6" data-order="114" data-closed="2021-12-16">
     <img src="https://i.ytimg.com/vi/NuVGELDhpv0/hqdefault.jpg">
 
     <div class="content">
@@ -2324,7 +2427,7 @@ html {
 </a>
 
 <!-- Left 4 Dead -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0jT-WWUo1sSKsM8Z-iEBHa" target="_blank" class="card" data-title="Left 4 Dead" data-rating="6" data-order="146">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0jT-WWUo1sSKsM8Z-iEBHa" target="_blank" class="card" data-title="Left 4 Dead" data-rating="6" data-order="146" data-closed="2018-10-08">
     <img src="https://i.ytimg.com/vi/YZGiG5v5TJs/hqdefault.jpg">
 
     <div class="content">
@@ -2347,7 +2450,7 @@ html {
 </a>
 
 <!-- Farming Simulator 15 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2XBcpHHFNU-rMsA7Ffs_Y1" target="_blank" class="card" data-title="Farming Simulator 15" data-rating="7" data-order="121">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2XBcpHHFNU-rMsA7Ffs_Y1" target="_blank" class="card" data-title="Farming Simulator 15" data-rating="7" data-order="121" data-closed="2021-06-14">
     <img src="https://i.ytimg.com/vi/DVAs2GdUpfc/hqdefault.jpg">
 
     <div class="content">
@@ -2360,7 +2463,7 @@ html {
 </a>
 
 <!-- Homefront: The Revolution Coop -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3-E3PUyn_PqxK8DsIlrkSe" target="_blank" class="card" data-title="Homefront: The Revolution Coop" data-rating="3" data-order="143">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3-E3PUyn_PqxK8DsIlrkSe" target="_blank" class="card" data-title="Homefront: The Revolution Coop" data-rating="3" data-order="143" data-closed="2018-02-01">
     <img src="https://i.ytimg.com/vi/hjJynL9UADE/hqdefault.jpg">
 
     <div class="content">
@@ -2373,7 +2476,7 @@ html {
 </a>
 
 <!-- Sniper Elite: Nazi Zombie Army 3 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3Yl7lx6mk2pALpePmTwdS5" target="_blank" class="card" data-title="Sniper Elite: Nazi Zombie Army 3" data-rating="7" data-order="152">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3Yl7lx6mk2pALpePmTwdS5" target="_blank" class="card" data-title="Sniper Elite: Nazi Zombie Army 3" data-rating="7" data-order="152" data-closed="2017-10-16">
     <img src="https://i.ytimg.com/vi/Etk9g8fOsts/hqdefault.jpg">
 
     <div class="content">
@@ -2386,7 +2489,7 @@ html {
 </a>
 
 <!-- Sniper Elite: Nazi Zombie Army 2 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1tu6UTKPk2q5KJ5HrD2Uz2" target="_blank" class="card" data-title="Sniper Elite: Nazi Zombie Army 2" data-rating="7" data-order="154">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1tu6UTKPk2q5KJ5HrD2Uz2" target="_blank" class="card" data-title="Sniper Elite: Nazi Zombie Army 2" data-rating="7" data-order="154" data-closed="2017-09-05">
     <img src="https://i.ytimg.com/vi/S98sZIWRRZQ/hqdefault.jpg">
 
     <div class="content">
@@ -2399,7 +2502,7 @@ html {
 </a>
 
 <!-- Sniper Elite: Nazi Zombie Army -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2aur5yuOt4WVe94nekCoun" target="_blank" class="card" data-title="Sniper Elite: Nazi Zombie Army" data-rating="8" data-order="172">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2aur5yuOt4WVe94nekCoun" target="_blank" class="card" data-title="Sniper Elite: Nazi Zombie Army" data-rating="8" data-order="172" data-closed="2017-03-17">
     <img src="https://i.ytimg.com/vi/144Yj1UkjSo/hqdefault.jpg">
 
     <div class="content">
@@ -2412,7 +2515,7 @@ html {
 </a>
 
 <!-- We Were Here Too -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1fEcmekzmE0x3DIZ3qDj5f" target="_blank" class="card" data-title="We Were Here Too" data-rating="6" data-order="109">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1fEcmekzmE0x3DIZ3qDj5f" target="_blank" class="card" data-title="We Were Here Too" data-rating="6" data-order="109" data-closed="2020-02-25">
     <img src="https://i.ytimg.com/vi/FaD4lAc2ejA/hqdefault.jpg">
 
     <div class="content">
@@ -2438,7 +2541,7 @@ html {
 </a>
 
 <!-- We Were Here -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3HGi2HPqJfyNuE7slR_L06" target="_blank" class="card" data-title="We Were Here" data-rating="9" data-order="131">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3HGi2HPqJfyNuE7slR_L06" target="_blank" class="card" data-title="We Were Here" data-rating="9" data-order="131" data-closed="2018-09-10">
     <img src="https://i.ytimg.com/vi/8QPowpAhxrI/hqdefault.jpg">
 
     <div class="content">
@@ -2451,7 +2554,7 @@ html {
 </a>
 
 <!-- PayDay: The Heist -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1R2CKDsjFceISC8liGwaHH" target="_blank" class="card" data-title="PayDay: The Heist" data-rating="8" data-order="165">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1R2CKDsjFceISC8liGwaHH" target="_blank" class="card" data-title="PayDay: The Heist" data-rating="8" data-order="165" data-closed="2017-09-08">
     <img src="https://i.ytimg.com/vi/b6d6Rs6rtk8/hqdefault.jpg">
 
     <div class="content">
@@ -2478,7 +2581,7 @@ html {
 </a>
 
 <!-- Spec Ops: The Line -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1EqFZQ0OJwodcS0lYNNIJR" target="_blank" class="card" data-title="Spec Ops: The Line" data-rating="6" data-order="129">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1EqFZQ0OJwodcS0lYNNIJR" target="_blank" class="card" data-title="Spec Ops: The Line" data-rating="6" data-order="129" data-closed="2018-11-01">
     <img src="https://i.ytimg.com/vi/2lg6dVktG3k/hqdefault.jpg">
 
     <div class="content">
@@ -2491,7 +2594,7 @@ html {
 </a>
 
 <!-- Fallout Shelter -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1T2rBcy60RD30ahY80WQlq" target="_blank" class="card" data-title="Fallout Shelter" data-rating="8" data-order="136">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1T2rBcy60RD30ahY80WQlq" target="_blank" class="card" data-title="Fallout Shelter" data-rating="8" data-order="136" data-closed="2022-01-08">
     <img src="https://i.ytimg.com/vi/-VE9oBhHrPc/hqdefault.jpg">
 
     <div class="content">
@@ -2504,7 +2607,7 @@ html {
 </a>
 
 <!-- Assassin’s Creed -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2wZbu2o57B2EijLMlUqXOb" target="_blank" class="card" data-title="Assassin’s Creed" data-rating="6" data-order="149">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2wZbu2o57B2EijLMlUqXOb" target="_blank" class="card" data-title="Assassin’s Creed" data-rating="6" data-order="149" data-closed="2018-12-11">
     <img src="https://i.ytimg.com/vi/QKd8t6fM1IY/hqdefault.jpg">
 
     <div class="content">
@@ -2514,7 +2617,7 @@ html {
 </a>
 
 <!-- Survarium -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2tEJxvKuqjxSPNdpG2mvzi" target="_blank" class="card" data-title="Survarium" data-rating="5" data-order="108">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2tEJxvKuqjxSPNdpG2mvzi" target="_blank" class="card" data-title="Survarium" data-rating="5" data-order="108" data-closed="2020-03-03">
     <img src="https://i.ytimg.com/vi/yceHyFNM_jg/hqdefault.jpg">
 
     <div class="content">
@@ -2540,7 +2643,7 @@ html {
 </a>
 
 <!-- Warface -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2pKBNKbEp6tef-5RWhWhA7" target="_blank" class="card" data-title="Warface" data-rating="4" data-order="103">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2pKBNKbEp6tef-5RWhWhA7" target="_blank" class="card" data-title="Warface" data-rating="4" data-order="103" data-closed="2021-06-10">
     <img src="https://i.ytimg.com/vi/UrL11qmizCg/hqdefault.jpg">
 
     <div class="content">
@@ -2553,7 +2656,7 @@ html {
 </a>
 
 <!-- Killing Floor -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3m8GWNDrPsoz4TyYKkRbo8" target="_blank" class="card" data-title="Killing Floor" data-rating="5" data-order="117">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3m8GWNDrPsoz4TyYKkRbo8" target="_blank" class="card" data-title="Killing Floor" data-rating="5" data-order="117" data-closed="2019-06-22">
     <img src="https://i.ytimg.com/vi/Mpw18Z-ewqM/hqdefault.jpg">
 
     <div class="content">
@@ -2566,7 +2669,7 @@ html {
 </a>
 
 <!-- No More Room in Hell -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2fTWInVSrEbvod5q9VB9Xd" target="_blank" class="card" data-title="No More Room in Hell" data-rating="5" data-order="125"> 
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2fTWInVSrEbvod5q9VB9Xd" target="_blank" class="card" data-title="No More Room in Hell" data-rating="5" data-order="125" data-closed="2020-01-13"> 
     <img src="https://i.ytimg.com/vi/F9tV5K4K4GI/hqdefault.jpg">
 
     <div class="content">
@@ -2592,7 +2695,7 @@ html {
 </a>
 
 <!-- No Man’s Sky -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1DQ651WBZw6nBVSJ7V6Egj" target="_blank" class="card" data-title="No Man’s Sky" data-rating="1" data-order="115">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1DQ651WBZw6nBVSJ7V6Egj" target="_blank" class="card" data-title="No Man’s Sky" data-rating="1" data-order="115" data-closed="2019-08-29">
     <img src="https://i.ytimg.com/vi/YSKh603_YeE/hqdefault.jpg">
 
     <div class="content">
@@ -2606,7 +2709,7 @@ html {
 </a>
 
 <!-- Unturned -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx22G610dUaHYboS0qpwakxS" target="_blank" class="card" data-title="Unturned" data-rating="6" data-order="119">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx22G610dUaHYboS0qpwakxS" target="_blank" class="card" data-title="Unturned" data-rating="6" data-order="119" data-closed="2019-06-23">
     <img src="https://i.ytimg.com/vi/rvpu0LEaP3M/hqdefault.jpg">
 
     <div class="content">
@@ -2619,7 +2722,7 @@ html {
 </a>
 
 <!-- Call of Duty: Black Ops III -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0PmZR9iDAjthhMGzUqSb-O" target="_blank" class="card" data-title="Call of Duty: Black Ops III" data-rating="3" data-order="123">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0PmZR9iDAjthhMGzUqSb-O" target="_blank" class="card" data-title="Call of Duty: Black Ops III" data-rating="3" data-order="123" data-closed="2019-01-02">
     <img src="https://i.ytimg.com/vi/NPQstFq_wiE/hqdefault.jpg">
 
     <div class="content">
@@ -2629,7 +2732,7 @@ html {
 </a>
 
 <!-- Call of Duty: Black Ops II -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1yGuGep0hUPTxcyYI2pjIl" target="_blank" class="card" data-title="Call of Duty: Black Ops II" data-rating="9" data-order="145">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1yGuGep0hUPTxcyYI2pjIl" target="_blank" class="card" data-title="Call of Duty: Black Ops II" data-rating="9" data-order="145" data-closed="2018-08-13">
     <img src="https://i.ytimg.com/vi/4rNiPWwa00U/hqdefault.jpg">
 
     <div class="content">
@@ -2639,7 +2742,7 @@ html {
 </a>
 
 <!-- Call of Duty: Black Ops -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0ft_8PdtNOt7bcJ7KMOEdp" target="_blank" class="card" data-title="Call of Duty: Black Ops" data-rating="6" data-order="153">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0ft_8PdtNOt7bcJ7KMOEdp" target="_blank" class="card" data-title="Call of Duty: Black Ops" data-rating="6" data-order="153" data-closed="2017-10-31">
     <img src="https://i.ytimg.com/vi/ePIM5Bn4-70/hqdefault.jpg">
 
     <div class="content">
@@ -2649,7 +2752,7 @@ html {
 </a>
 
 <!-- Call of Duty: Ghosts -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3GPF0S7GwOUctb1nFPXyiN" target="_blank" class="card" data-title="Call of Duty: Ghosts" data-rating="6" data-order="161">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3GPF0S7GwOUctb1nFPXyiN" target="_blank" class="card" data-title="Call of Duty: Ghosts" data-rating="6" data-order="161" data-closed="2017-07-08">
     <img src="https://i.ytimg.com/vi/XqoCUdllXzs/hqdefault.jpg">
 
     <div class="content">
@@ -2659,7 +2762,7 @@ html {
 </a>
 
 <!-- Call of Duty: Modern Warfare Remastered -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx20Q6Nk0Jc-si26S6f8GYXh" target="_blank" class="card" data-title="Call of Duty: Modern Warfare Remastered" data-rating="6" data-order="163">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx20Q6Nk0Jc-si26S6f8GYXh" target="_blank" class="card" data-title="Call of Duty: Modern Warfare Remastered" data-rating="6" data-order="163" data-closed="2017-05-23">
     <img src="https://i.ytimg.com/vi/BLAiRFOqm8U/hqdefault.jpg">
 
     <div class="content">
@@ -2669,7 +2772,7 @@ html {
 </a>
 
 <!-- Call of Duty: Modern Warfare 3 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2vJ7KqY6hEX08mTf-W85lh" target="_blank" class="card" data-title="Call of Duty: Modern Warfare 3" data-rating="7" data-order="171">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2vJ7KqY6hEX08mTf-W85lh" target="_blank" class="card" data-title="Call of Duty: Modern Warfare 3" data-rating="7" data-order="171" data-closed="2017-02-18">
     <img src="https://i.ytimg.com/vi/upf65wKrBd4/hqdefault.jpg">
 
     <div class="content">
@@ -2679,7 +2782,7 @@ html {
 </a>
 
 <!-- Call of Duty: Modern Warfare 2 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2S9Q_U5kmwmmPiKMxla9cm" target="_blank" class="card" data-title="Call of Duty: Modern Warfare 2" data-rating="9" data-order="173">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2S9Q_U5kmwmmPiKMxla9cm" target="_blank" class="card" data-title="Call of Duty: Modern Warfare 2" data-rating="9" data-order="173" data-closed="2016-11-29">
     <img src="https://i.ytimg.com/vi/A-yzzfmwwUM/hqdefault.jpg">
 
     <div class="content">
@@ -2689,7 +2792,7 @@ html {
 </a>
 
 <!-- Call of Duty 4: Modern Warfare -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx18CbaSlN-iY89gGO7e95rd" target="_blank" class="card" data-title="Call of Duty 4: Modern Warfare" data-rating="8" data-order="179">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx18CbaSlN-iY89gGO7e95rd" target="_blank" class="card" data-title="Call of Duty 4: Modern Warfare" data-rating="8" data-order="179" data-closed="2016-05-08">
     <img src="https://i.ytimg.com/vi/P-lphEUquYY/hqdefault.jpg">
 
     <div class="content">
@@ -2699,7 +2802,7 @@ html {
 </a>
 
 <!-- Call of Duty: World at War -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx166B-8cLul-bm0mOO2RIjN" target="_blank" class="card" data-title="Call of Duty: World at War" data-rating="6" data-order="155">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx166B-8cLul-bm0mOO2RIjN" target="_blank" class="card" data-title="Call of Duty: World at War" data-rating="6" data-order="155" data-closed="2017-09-22">
     <img src="https://i.ytimg.com/vi/AuFA7KyRw14/hqdefault.jpg">
 
     <div class="content">
@@ -2709,7 +2812,7 @@ html {
 </a>
 
 <!-- Call of Duty 2 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1X19fHIrRM0qXea6ozd1D8" target="_blank" class="card" data-title="Call of Duty 2" data-rating="6" data-order="177">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1X19fHIrRM0qXea6ozd1D8" target="_blank" class="card" data-title="Call of Duty 2" data-rating="6" data-order="177" data-closed="2016-09-01">
     <img src="https://i.ytimg.com/vi/JrMeMYYWDTc/hqdefault.jpg">
 
     <div class="content">
@@ -2719,7 +2822,7 @@ html {
 </a>
 
 <!-- Call of Duty -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1_8QM83IXwX0eOGEIbBT8u" target="_blank" class="card" data-title="Call of Duty" data-rating="7" data-order="160">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1_8QM83IXwX0eOGEIbBT8u" target="_blank" class="card" data-title="Call of Duty" data-rating="7" data-order="160" data-closed="2017-06-24">
     <img src="https://i.ytimg.com/vi/tZvunSGCTJA/hqdefault.jpg">
 
     <div class="content">
@@ -2732,7 +2835,7 @@ html {
 </a>
 
 <!-- Euro Truck Simulator 2 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0bMRUwgh51U4KLCvdBaxE-" target="_blank" class="card" data-title="Euro Truck Simulator 2" data-rating="7" data-order="159">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0bMRUwgh51U4KLCvdBaxE-" target="_blank" class="card" data-title="Euro Truck Simulator 2" data-rating="7" data-order="159" data-closed="2021-05-22">
     <img src="https://i.ytimg.com/vi/L5wS4-SrI4M/hqdefault.jpg">
 
     <div class="content">
@@ -2745,7 +2848,7 @@ html {
 </a>
 
 <!-- American Truck Simulator -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2F09Nm_gF_kVpWepPaaDlh" target="_blank" class="card" data-title="American Truck Simulator" data-rating="6" data-order="162">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2F09Nm_gF_kVpWepPaaDlh" target="_blank" class="card" data-title="American Truck Simulator" data-rating="6" data-order="162" data-closed="2021-05-29">
     <img src="https://i.ytimg.com/vi/IFIDbQ9I12w/hqdefault.jpg">
 
     <div class="content">
@@ -2758,7 +2861,7 @@ html {
 </a>
 
 <!-- Tom Clancy's The Division -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0KFEOaNYbuiDvNvIK6-0uF" target="_blank" class="card" data-title="Tom Clancy's The Division" data-rating="6" data-order="183">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0KFEOaNYbuiDvNvIK6-0uF" target="_blank" class="card" data-title="Tom Clancy's The Division" data-rating="6" data-order="183" data-closed="2017-08-25">
     <img src="https://i.ytimg.com/vi/m1U6oLXGYsQ/hqdefault.jpg">
 
     <div class="content">
@@ -2771,7 +2874,7 @@ html {
 </a>
 
 <!-- Fortnite: Battle Royale -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3ZCY1GaNu63BJncrGp67kw" target="_blank" class="card" data-title="Fortnite: Battle Royale" data-rating="2" data-order="140">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3ZCY1GaNu63BJncrGp67kw" target="_blank" class="card" data-title="Fortnite: Battle Royale" data-rating="2" data-order="140" data-closed="2018-04-11">
     <img src="https://i.ytimg.com/vi/XSAdVNeBzGg/hqdefault.jpg">
 
     <div class="content">
@@ -2784,7 +2887,7 @@ html {
 </a>
 
 <!-- Tom Clancy’s Rainbow Six Siege -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0bmLkz7xex9ah5qD92YTuK" target="_blank" class="card" data-title="Tom Clancy’s Rainbow Six Siege" data-rating="6" data-order="181">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0bmLkz7xex9ah5qD92YTuK" target="_blank" class="card" data-title="Tom Clancy’s Rainbow Six Siege" data-rating="6" data-order="181" data-closed="2019-06-08">
     <img src="https://i.ytimg.com/vi/ZZ1NiY50xL0/hqdefault.jpg">
 
     <div class="content">
@@ -2797,7 +2900,7 @@ html {
 </a>
 
 <!-- Space Farmers -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2qCpzWGteeWbMpbBvsGlV8" target="_blank" class="card" data-title="Space Farmers" data-rating="5" data-order="176">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2qCpzWGteeWbMpbBvsGlV8" target="_blank" class="card" data-title="Space Farmers" data-rating="5" data-order="176" data-closed="2016-05-13">
     <img src="https://i.ytimg.com/vi/fG7Jr2pilqE/hqdefault.jpg">
 
     <div class="content">
@@ -2810,7 +2913,7 @@ html {
 </a>
 
 <!-- Arma 2 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1Rekkofi5ceB6MqPsrw140" target="_blank" class="card" data-title="Arma 2" data-rating="7" data-order="178">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1Rekkofi5ceB6MqPsrw140" target="_blank" class="card" data-title="Arma 2" data-rating="7" data-order="178" data-closed="2016-05-12">
     <img src="https://i.ytimg.com/vi/gcH9IwBp3AE/hqdefault.jpg">
 
     <div class="content">
@@ -2820,7 +2923,7 @@ html {
 </a>
 
 <!-- The Stanley Parable -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1IfFZ5Scr9BmrxgqTiXYqL" target="_blank" class="card" data-title="The Stanley Parable" data-rating="7" data-order="175">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1IfFZ5Scr9BmrxgqTiXYqL" target="_blank" class="card" data-title="The Stanley Parable" data-rating="7" data-order="175" data-closed="2016-08-18">
     <img src="https://i.ytimg.com/vi/YI1_wyl5xQo/hqdefault.jpg">
 
     <div class="content">
@@ -2830,7 +2933,7 @@ html {
 </a>
 
 <!-- Tom Clancy’s Ghost Recon Wildlands -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2SGkUk_4uPDKBvWpWuLEMx" target="_blank" class="card" data-title="Tom Clancy’s Ghost Recon Wildlands" data-rating="4" data-order="26">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2SGkUk_4uPDKBvWpWuLEMx" target="_blank" class="card" data-title="Tom Clancy’s Ghost Recon Wildlands" data-rating="4" data-order="26" data-closed="2025-04-15">
     <img src="https://i.ytimg.com/vi/mr165LUmnQc/hqdefault.jpg">
 
     <div class="content">
@@ -2844,7 +2947,7 @@ html {
 </a>
 
 <!-- Team Fortress 2 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3CzgbHIjjijbLydJMafuUE" target="_blank" class="card" data-title="Team Fortress 2" data-rating="8" data-order="170">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3CzgbHIjjijbLydJMafuUE" target="_blank" class="card" data-title="Team Fortress 2" data-rating="8" data-order="170" data-closed="2017-01-02">
     <img src="https://i.ytimg.com/vi/R2KZQXsUILA/hqdefault.jpg">
 
     <div class="content">
@@ -2857,7 +2960,7 @@ html {
 </a>
 
 <!-- Super Hot -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0aX8DgVQUuJ-5K9Zstpm_a" target="_blank" class="card" data-title="Super Hot" data-rating="8" data-order="166">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0aX8DgVQUuJ-5K9Zstpm_a" target="_blank" class="card" data-title="Super Hot" data-rating="8" data-order="166" data-closed="2017-02-18">
     <img src="https://i.ytimg.com/vi/YCYA8q_WDW0/hqdefault.jpg">
 
     <div class="content">
@@ -2867,7 +2970,7 @@ html {
 </a>
 
 <!-- Ryse: Son of Rome -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx35H01_ycMWIbiWpVIdeelT" target="_blank" class="card" data-title="Ryse: Son of Rome" data-rating="5" data-order="182">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx35H01_ycMWIbiWpVIdeelT" target="_blank" class="card" data-title="Ryse: Son of Rome" data-rating="5" data-order="182" data-closed="2016-04-28">
     <img src="https://i.ytimg.com/vi/PuFhZ_v9pQ0/hqdefault.jpg">
 
     <div class="content">
@@ -2880,7 +2983,7 @@ html {
 </a>
 
 <!-- Rocket League -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2HbSFEcQ7joBYqsMp1JV2m" target="_blank" class="card" data-title="Rocket League" data-rating="4" data-order="188">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2HbSFEcQ7joBYqsMp1JV2m" target="_blank" class="card" data-title="Rocket League" data-rating="4" data-order="188" data-closed="2016-04-17">
     <img src="https://i.ytimg.com/vi/4TQ4JuC1Xo4/hqdefault.jpg">
 
     <div class="content">
@@ -2890,7 +2993,7 @@ html {
 </a>
 
 <!-- DayZ -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1JNhT0WY4pUVsaI1oCVDkM" target="_blank" class="card" data-title="DayZ" data-rating="5" data-order="186">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1JNhT0WY4pUVsaI1oCVDkM" target="_blank" class="card" data-title="DayZ" data-rating="5" data-order="186" data-closed="2016-06-14">
     <img src="https://i.ytimg.com/vi/oJFWEslYUb8/hqdefault.jpg">
 
     <div class="content">
@@ -2900,7 +3003,7 @@ html {
 </a>
 
 <!-- Don’t Starve together -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1U0BbUSogXfhhFaSeQBond" target="_blank" class="card" data-title="Don’t Starve together" data-rating="6" data-order="185">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1U0BbUSogXfhhFaSeQBond" target="_blank" class="card" data-title="Don’t Starve together" data-rating="6" data-order="185" data-closed="2017-11-28">
     <img src="https://i.ytimg.com/vi/K8LWS20TXdw/hqdefault.jpg">
 
     <div class="content">
@@ -2922,7 +3025,7 @@ html {
 <div class="container low">
 
 <!-- John Carpenter's Toxic Commando Demo -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2TUBZSHVEZHyHdm2l6YBcL" target="_blank" class="card" data-title="John Carpenter's Toxic Commando Demo" data-rating="7" data-order="0">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2TUBZSHVEZHyHdm2l6YBcL" target="_blank" class="card" data-title="John Carpenter's Toxic Commando Demo" data-rating="7" data-order="0" data-closed="2026-03-02">
     <img src="https://i.ytimg.com/vi/leP1UxqpO0w/hqdefault.jpg">
 
     <div class="content">
@@ -2935,7 +3038,7 @@ html {
 </a>
 
 <!-- PayDay 3 Beta -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3a7tdJjHB2CByyvNlJomAG" target="_blank" class="card" data-title="PayDay 3 Beta" data-rating="7" data-order="2">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3a7tdJjHB2CByyvNlJomAG" target="_blank" class="card" data-title="PayDay 3 Beta" data-rating="7" data-order="2" data-closed="2023-09-15">
     <img src="https://i.ytimg.com/vi/8l4S01neTyw/hqdefault.jpg">
 
     <div class="content">
@@ -2949,7 +3052,7 @@ html {
 </a>
 
 <!-- Cairn Demo -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1ym3t-FQW6q4SukzcpAxY9" target="_blank" class="card" data-title="Cairn Demo" data-rating="7" data-order="1">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1ym3t-FQW6q4SukzcpAxY9" target="_blank" class="card" data-title="Cairn Demo" data-rating="7" data-order="1" data-closed="2025-05-31">
     <img src="https://i.ytimg.com/vi/vjLS3OCV77w/hqdefault.jpg">
 
     <div class="content">
@@ -2959,7 +3062,7 @@ html {
 </a>
 
 <!-- Back 4 Blood: Open Beta -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2SQCD3aUbFJmFgrF_aQOR6" target="_blank" class="card" data-title="Back 4 Blood: Open Beta" data-rating="5" data-order="4">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2SQCD3aUbFJmFgrF_aQOR6" target="_blank" class="card" data-title="Back 4 Blood: Open Beta" data-rating="5" data-order="4" data-closed="2021-08-26">
     <img src="https://i.ytimg.com/vi/o8OCS-bFhVo/hqdefault.jpg">
 
     <div class="content">
@@ -2972,7 +3075,7 @@ html {
 </a>
 
 <!-- Battlefield V Beta -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3gXqjrPdaq5dxHo0AwQfwc" target="_blank" class="card" data-title="Battlefield V Beta" data-rating="6" data-order="7">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3gXqjrPdaq5dxHo0AwQfwc" target="_blank" class="card" data-title="Battlefield V Beta" data-rating="6" data-order="7" data-closed="2018-09-20">
     <img src="https://i.ytimg.com/vi/CSuLtNm1HTA/hqdefault.jpg">
 
     <div class="content">
@@ -2985,7 +3088,7 @@ html {
 </a>
 
 <!-- Tom Clancy’s The Division 2 Beta -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0LiaqOkoyZfJUrk6FxmxDk" target="_blank" class="card" data-title="Tom Clancy’s The Division 2 Beta" data-rating="3" data-order="5">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0LiaqOkoyZfJUrk6FxmxDk" target="_blank" class="card" data-title="Tom Clancy’s The Division 2 Beta" data-rating="3" data-order="5" data-closed="2019-04-16">
     <img src="https://i.ytimg.com/vi/bfm1EZLggus/hqdefault.jpg">
 
     <div class="content">
@@ -2998,7 +3101,7 @@ html {
 </a>
 
 <!-- OVERKILL's The Walking Dead BETA -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0kCiq8RugzTyxzfTlj8OTE" target="_blank" class="card" data-title="OVERKILL's The Walking Dead BETA" data-rating="5" data-order="6">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0kCiq8RugzTyxzfTlj8OTE" target="_blank" class="card" data-title="OVERKILL's The Walking Dead BETA" data-rating="5" data-order="6" data-closed="2018-11-27">
     <img src="https://i.ytimg.com/vi/n6PbbrSkhEY/hqdefault.jpg">
 
     <div class="content">
@@ -3011,7 +3114,7 @@ html {
 </a>
 
 <!-- RAID: World War II BETA -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1W4_7HFD0zsgQYKRic4XIQ" target="_blank" class="card" data-title="RAID: World War II BETA" data-rating="5" data-order="10">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1W4_7HFD0zsgQYKRic4XIQ" target="_blank" class="card" data-title="RAID: World War II BETA" data-rating="5" data-order="10" data-closed="2017-09-23">
     <img src="https://i.ytimg.com/vi/nms3vE-dJlE/hqdefault.jpg">
 
     <div class="content">
@@ -3025,7 +3128,7 @@ html {
 </a>
 
 <!-- Call of Duty: Black Ops IIII Beta -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3Jnlf-IoD9HRD1OYX1R-0c" target="_blank" class="card" data-title="Call of Duty: Black Ops IIII Beta" data-rating="0" data-order="8">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3Jnlf-IoD9HRD1OYX1R-0c" target="_blank" class="card" data-title="Call of Duty: Black Ops IIII Beta" data-rating="0" data-order="8" data-closed="2018-08-24">
     <img src="https://i.ytimg.com/vi/98HTZT5rDUY/hqdefault.jpg">
 
     <div class="content">
@@ -3038,7 +3141,7 @@ html {
 </a>
 
 <!-- Call of Duty: Vanguard Beta -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1xybfyOikwqDQOjrRRl-vo" target="_blank" class="card" data-title="Call of Duty: Vanguard Beta" data-rating="2" data-order="3">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1xybfyOikwqDQOjrRRl-vo" target="_blank" class="card" data-title="Call of Duty: Vanguard Beta" data-rating="2" data-order="3" data-closed="2021-10-16">
     <img src="https://i.ytimg.com/vi/3wrwuaggSyk/hqdefault.jpg">
 
     <div class="content">
@@ -3051,7 +3154,7 @@ html {
 </a>
 
 <!-- Tom Clancy's Ghost Recon Wildlands Beta -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3nD9hsP3WH2hSYm7ja6ybp" target="_blank" class="card" data-title="Tom Clancy's Ghost Recon Wildlands Beta" data-rating="7" data-order="11">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3nD9hsP3WH2hSYm7ja6ybp" target="_blank" class="card" data-title="Tom Clancy's Ghost Recon Wildlands Beta" data-rating="7" data-order="11" data-closed="2017-05-03">
     <img src="https://i.ytimg.com/vi/AsL5Nkkt_ys/hqdefault.jpg">
 
     <div class="content">
@@ -3066,7 +3169,7 @@ html {
 </a>
 
 <!-- Tom Clancy's The Division Beta -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2VbGNIEK4ZETervyvcjlZ6" target="_blank" class="card" data-title="Tom Clancy's The Division Beta" data-rating="7" data-order="12">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2VbGNIEK4ZETervyvcjlZ6" target="_blank" class="card" data-title="Tom Clancy's The Division Beta" data-rating="7" data-order="12" data-closed="2016-03-12">
     <img src="https://i.ytimg.com/vi/aavbRTIuW0k/hqdefault.jpg">
 
     <div class="content">
@@ -3079,7 +3182,7 @@ html {
 </a>
 
 <!-- Star Wars: Battlefront II Open Beta -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1Naz4i3V0pi6AbmCsaz16y" target="_blank" class="card" data-title="Star Wars: Battlefront II Open Beta" data-rating="3" data-order="9">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1Naz4i3V0pi6AbmCsaz16y" target="_blank" class="card" data-title="Star Wars: Battlefront II Open Beta" data-rating="3" data-order="9" data-closed="2017-10-21">
     <img src="https://i.ytimg.com/vi/Y5NswJkMeAM/hqdefault.jpg">
 
     <div class="content">
@@ -3101,7 +3204,7 @@ html {
 <div class="container low">
 
 <!-- Bodycam -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3eapYzTATUUZQcr39wv8pZ" target="_blank" class="card" data-title="Bodycam" data-rating="4" data-order="0">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx3eapYzTATUUZQcr39wv8pZ" target="_blank" class="card" data-title="Bodycam" data-rating="4" data-order="0" data-closed="2024-12-31">
     <img src="https://i.ytimg.com/vi/OaX0hYOsd60/hqdefault.jpg">
     <div class="content">
         <div class="title">Bodycam</div>
@@ -3114,7 +3217,7 @@ html {
 </a>
 
 <!-- Doll Imposter -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0iZgJOn-sDo-oB6UnxDbrc" target="_blank" class="card" data-title="Doll Imposter" data-rating="6" data-order="2">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0iZgJOn-sDo-oB6UnxDbrc" target="_blank" class="card" data-title="Doll Imposter" data-rating="6" data-order="2" data-closed="2024-08-05">
     <img src="https://i.ytimg.com/vi/m3kiIJHdpOs/hqdefault.jpg">
     <div class="content">
         <div class="title">Doll Imposter</div>
@@ -3126,7 +3229,7 @@ html {
 </a>
 
 <!-- The Forever Winter -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0cZpd-PRvwIysfrhaFc7dQ" target="_blank" class="card" data-title="The Forever Winter" data-rating="5" data-order="1">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0cZpd-PRvwIysfrhaFc7dQ" target="_blank" class="card" data-title="The Forever Winter" data-rating="5" data-order="1" data-closed="2024-12-31">
     <img src="https://i.ytimg.com/vi/utELM35OKhk/hqdefault.jpg">
     <div class="content">
         <div class="title">The Forever Winter</div>
@@ -3139,7 +3242,7 @@ html {
 </a>
 
 <!-- Perfect Heist 2 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0kEMvZRsp6O35nEfN7teFg" target="_blank" class="card" data-title="Perfect Heist 2" data-rating="4" data-order="3">      
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0kEMvZRsp6O35nEfN7teFg" target="_blank" class="card" data-title="Perfect Heist 2" data-rating="4" data-order="3" data-closed="2024-07-30">      
     <img src="https://i.ytimg.com/vi/NX-x1B-lqzc/hqdefault.jpg">
 
     <div class="content">
@@ -3154,7 +3257,7 @@ html {
 </a>
 
 <!-- Garry's Mod -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx12ihQ8L-XhJf9lLmUiQe3r" target="_blank" class="card" data-title="Garry's Mod" data-rating="4" data-order="6">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx12ihQ8L-XhJf9lLmUiQe3r" target="_blank" class="card" data-title="Garry's Mod" data-rating="4" data-order="6" data-closed="2024-04-04">
     <img src="https://i.ytimg.com/vi/XsJKUrGiiLE/hqdefault.jpg">
 
     <div class="content">
@@ -3183,7 +3286,7 @@ html {
 </a>
 
 <!-- One-armed Robber -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2QpL15KOPqFd-hLkM0YlOe" target="_blank" class="card" data-title="One-armed Robber" data-rating="5" data-order="4">     
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2QpL15KOPqFd-hLkM0YlOe" target="_blank" class="card" data-title="One-armed Robber" data-rating="5" data-order="4" data-closed="2024-07-29">     
     <img src="https://i.ytimg.com/vi/3tfdresiYF0/hqdefault.jpg">
 
     <div class="content">
@@ -3211,7 +3314,7 @@ html {
 </a>
 
 <!-- Keep Talking and Nobody Explodes -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1m56p22ls3VgztChw2o6bK" target="_blank" class="card" data-title="Keep Talking and Nobody Explodes" data-rating="7" data-order="8">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1m56p22ls3VgztChw2o6bK" target="_blank" class="card" data-title="Keep Talking and Nobody Explodes" data-rating="7" data-order="8" data-closed="2023-12-25">
     <img src="https://i.ytimg.com/vi/UyEuBsKhH_M/hqdefault.jpg">
 
     <div class="content">
@@ -3278,7 +3381,7 @@ html {
 </a>
 
 <!-- Arma 3 -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1uTm9WTH85Ftm5PGwdA1Mh" target="_blank" class="card" data-title="Arma 3" data-rating="5" data-order="13">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx1uTm9WTH85Ftm5PGwdA1Mh" target="_blank" class="card" data-title="Arma 3" data-rating="5" data-order="13" data-closed="2020-06-04">
     <img src="https://i.ytimg.com/vi/dyhbxOdXqmE/hqdefault.jpg">
 
     <div class="content">
@@ -3288,7 +3391,7 @@ html {
 </a>
 
 <!-- Hack_me -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2Sl5hQRYY6F7lvXSu05VPK" target="_blank" class="card" data-title="Hack_me" data-rating="6" data-order="17">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2Sl5hQRYY6F7lvXSu05VPK" target="_blank" class="card" data-title="Hack_me" data-rating="6" data-order="17" data-closed="2017-02-23">
     <img src="https://i.ytimg.com/vi/lOHhkaM3mIY/hqdefault.jpg">
 
     <div class="content">
@@ -3311,7 +3414,7 @@ html {
 </a>
 
 <!-- Duck Season -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx36pvpXzTmaLLsKP06JOTbK" target="_blank" class="card" data-title="Duck Season" data-rating="4" data-order="11">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx36pvpXzTmaLLsKP06JOTbK" target="_blank" class="card" data-title="Duck Season" data-rating="4" data-order="11" data-closed="2021-07-14">
     <img src="https://i.ytimg.com/vi/WZ7YpMnzHks/hqdefault.jpg">
 
     <div class="content">
@@ -3324,7 +3427,7 @@ html {
 </a>
 
 <!-- Dead by deadlight -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0Fwgf2dmiMppzNoIWvjAQQ" target="_blank" class="card" data-title="Dead by deadlight" data-rating="6" data-order="19">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0Fwgf2dmiMppzNoIWvjAQQ" target="_blank" class="card" data-title="Dead by deadlight" data-rating="6" data-order="19" data-closed="2016-06-29">
     <img src="https://i.ytimg.com/vi/LUE3tkqUqE4/hqdefault.jpg">
 
     <div class="content">
@@ -3337,7 +3440,7 @@ html {
 </a>
 
 <!-- Diep.io -->
-<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2F4eNxxm87_vzlCSHW8vqG" target="_blank" class="card" data-title="Diep.io" data-rating="4" data-order="18">
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx2F4eNxxm87_vzlCSHW8vqG" target="_blank" class="card" data-title="Diep.io" data-rating="4" data-order="18" data-closed="2016-05-27">
     <img src="https://i.ytimg.com/vi/7SkZSC90-tg/hqdefault.jpg">
 
     <div class="content">
@@ -3347,7 +3450,9 @@ html {
 </a>
 </div>
 
+</div>
 
+<div id="timeline-view" style="display:none;"></div>
 
 </div>
 
@@ -3607,6 +3712,117 @@ function resetOrder() {
 </script>
 -->
 
+
+<script>
+const input = document.getElementById('search');
+const clear = document.getElementById('clear-search');
+
+// показать/скрыть крестик
+input.addEventListener('input', () => {
+    clear.style.display = input.value ? 'block' : 'none';
+});
+
+// очистка
+clear.addEventListener('click', () => {
+    input.value = "";
+    clear.style.display = "none";
+
+    // обновляем поиск (ВАЖНО)
+    input.dispatchEvent(new Event('input'));
+});
+</script>
+
+<script>
+
+    function buildTimeline() {
+        
+
+    const timeline = document.getElementById("timeline-view");
+
+    timeline.innerHTML = "";
+
+    const cards = Array.from(
+        document.querySelectorAll("#showcase-view .card[data-closed]")
+    );
+
+    cards.sort((a, b) =>
+        new Date(b.dataset.closed) - new Date(a.dataset.closed)
+    );
+
+    const years = {};
+
+    cards.forEach(card => {
+
+        const year = card.dataset.closed.slice(0, 4);
+
+        if (!years[year]) {
+            years[year] = [];
+        }
+
+        years[year].push(card.cloneNode(true));
+    });
+
+    Object.keys(years)
+        .sort((a, b) => b - a)
+        .forEach(year => {
+
+            const header = document.createElement("div");
+            header.className = "year-header";
+
+            const title = document.createElement("h2");
+            title.className = "year-title";
+            title.textContent = year;
+
+            const count = document.createElement("div");
+            count.className = "year-count";
+            count.textContent = `${years[year].length} проектс`;
+
+            header.appendChild(title);
+            header.appendChild(count);
+
+            const container = document.createElement("div");
+            container.className = "container";
+
+            years[year].forEach(card => {
+                container.appendChild(card);
+            });
+
+            timeline.appendChild(header);
+            timeline.appendChild(container);
+        });
+}
+
+document.querySelector(".view-showcase").addEventListener("click", () => {
+
+
+    document.getElementById("showcase-view").style.display = "";
+    document.getElementById("timeline-view").style.display = "none";
+
+    document.querySelectorAll(".view-btn")
+        .forEach(btn => btn.classList.remove("active"));
+
+    document.querySelector(".view-showcase")
+        .classList.add("active");
+});
+
+buildTimeline();
+
+document.querySelector(".view-timeline").addEventListener("click", () => {
+
+
+
+    document.getElementById("showcase-view").style.display = "none";
+    document.getElementById("timeline-view").style.display = "";
+
+    document.querySelectorAll(".view-btn")
+        .forEach(btn => btn.classList.remove("active"));
+
+    document.querySelector(".view-timeline")
+        .classList.add("active");
+});
+
+</script>
+
 <script>
 document.querySelectorAll('.card img').forEach(img => {
 
@@ -3628,25 +3844,6 @@ document.querySelectorAll('.card img').forEach(img => {
         }
     };
 
-});
-</script>
-
-<script>
-const input = document.getElementById('search');
-const clear = document.getElementById('clear-search');
-
-// показать/скрыть крестик
-input.addEventListener('input', () => {
-    clear.style.display = input.value ? 'block' : 'none';
-});
-
-// очистка
-clear.addEventListener('click', () => {
-    input.value = "";
-    clear.style.display = "none";
-
-    // обновляем поиск (ВАЖНО)
-    input.dispatchEvent(new Event('input'));
 });
 </script>
 
