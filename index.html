@@ -53,8 +53,12 @@ h1 {
 }
 
 .content {
-    padding: 10px; 
+    padding: 10px;
     gap: 6px;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 105px;
 }
 
 .title {
@@ -379,10 +383,19 @@ html {
     color: #586174;
 }
 
+.coming-date {
+    margin-top: auto;
+
+    font-size: 11px;
+    color: #70798d;
+    text-align: center;
+    font-weight: 600;
+}
+
 </style>
 
 
-<!-- v70 -->
+<!-- v71 -->
 
 </head>
 
@@ -724,6 +737,19 @@ html {
     </div>
 </a>
 
+<!-- FBC: Firebreak -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0eBU6RCwcCfn56OENhI-kF" target="_blank" class="card" data-title="FBC: Firebreak" data-rating="8" data-closed="2026-07-07">
+    <img src="https://i.ytimg.com/vi/wDb9-hbmkN4/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">FBC: Firebreak</div>
+        <div class="rating">⭐ 8/10</div>
+        <div class="tags">
+        <span class="tag decoy">Decoy</span>
+        </div>
+    </div>
+</a>
+
 <!-- Cuphead -->
 <a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0T-GT8b2TwGlFZ3C_WGuKl" target="_blank" class="card" data-title="Cuphead" data-rating="5" data-order="23" data-closed="2025-06-04">
     <img src="https://i.ytimg.com/vi/itAiGjT5LjE/hqdefault.jpg">
@@ -915,6 +941,19 @@ html {
         <div class="rating">⭐ 6/10</div>
         <div class="tags">
         <span class="tag gypl">Gypl</span>
+        </div>
+    </div>
+</a>
+
+<!-- Dying Light: The Beast -->
+<a href="https://www.youtube.com/playlist?list=PLBiYVz7a5fx0pr2t6OQhUk6LkV-nQ8n9h" target="_blank" class="card" data-title="Dying Light: The Beast" data-rating="4" data-closed="2026-07-03">
+    <img src="https://i.ytimg.com/vi/oj8EzPT0vRo/hqdefault.jpg">
+
+    <div class="content">
+        <div class="title">Dying Light: The Beast</div>
+        <div class="rating">⭐ 4/10</div>
+        <div class="tags">
+        <span class="tag chapaev">Chapaev</span>
         </div>
     </div>
 </a>
@@ -3454,6 +3493,7 @@ html {
 
 <div id="timeline-view" style="display:none;"></div>
 
+
 </div>
 
 <script>
@@ -3531,11 +3571,17 @@ document.getElementById('search').addEventListener('input', (e) => {
     const cards = document.querySelectorAll('.card');
 
     cards.forEach(card => {
-        const title = card.dataset.title.toLowerCase();
+    const title = card.dataset.title.toLowerCase();
 
-        // показываем / скрываем
-        card.style.display = title.includes(value) ? "block" : "none";
-    });
+    card.style.display = title.includes(value) ? "block" : "none";
+});
+
+// скрываем счётчики годов во время поиска
+document.querySelectorAll('.year-count').forEach(counter => {
+    counter.style.visibility = value.trim() ? 'hidden' : 'visible';
+});
+
+updateSections();
 
     // обновляем категории (скрываем пустые)
     updateSections();
@@ -3563,7 +3609,7 @@ function updateSections() {
             if (title) title.style.display = "none";
         } else {
             container.style.display = "grid";
-            if (title) title.style.display = "block";
+            if (title) title.style.display = "flex";
         }
     });
 }
@@ -3841,10 +3887,36 @@ document.querySelectorAll('.card img').forEach(img => {
 
             card.removeAttribute("href");
             card.style.pointerEvents = "none";
+            
+            // добавляем месяц выхода
+            if (card.dataset.closed) {
+
+                const months = [
+                    "Январь","Февраль","Март","Апрель",
+                    "Май","Июнь","Июль","Август",
+                    "Сентябрь","Октябрь","Ноябрь","Декабрь"
+                ];
+
+                const date = new Date(card.dataset.closed);
+
+                const release = document.createElement("div");
+
+                release.className = "coming-date";
+
+                release.textContent =
+                    months[date.getMonth()] +
+                    " " +
+                    date.getFullYear();
+
+                card.querySelector(".content")
+                    .appendChild(release);
+            }
         }
     };
 
 });
+
+
 </script>
 
 </body>
